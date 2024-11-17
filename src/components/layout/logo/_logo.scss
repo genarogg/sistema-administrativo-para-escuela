@@ -1,0 +1,52 @@
+.header {
+  .container-logo {
+    a {
+      display: flex;
+
+      img,
+      svg {
+        width: 220px;
+        fill: $color-secondary;
+      }
+    }
+  }
+}
+
+@include max-width(1500px) {
+  .header {
+    .container-logo {
+      a {
+        img,
+        svg {
+          width: 180px;
+        }
+      }
+    }
+  }
+}
+
+@include max-width(1200px) {
+  .header {
+    .container-logo {
+      a {
+        img,
+        svg {
+          width: 150px;
+        }
+      }
+    }
+  }
+}
+
+@include max-width(1000px) {
+  .header {
+    .container-logo {
+      a {
+        img,
+        svg {
+          width: 130px;
+        }
+      }
+    }
+  }
+}
