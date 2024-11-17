@@ -16,6 +16,7 @@
       "@/*": ["./src/*"],
       "@btn": ["./src/components/nano/btn/index.tsx"],
       "@nano": ["./src/components/nano/index.tsx"],
+      "@wallpaper": ["./src/components/nano/wallpaper/index.tsx"],
       "@fn/*": ["./src/functions/*"],
       "@imgSVG/*":["./src/imgSVG/*"],
 
