@@ -19,7 +19,7 @@
       "@wallpaper": ["./src/components/nano/wallpaper/index.tsx"],
       "@fn/*": ["./src/functions/*"],
       "@imgSVG/*":["./src/imgSVG/*"],
-
+      "@section": ["./src/components/nano/section/index.tsx"],
       "@view/*": ["./src/components/views/*"],
 
       "@layout": ["./src/components/layout/Layout.tsx"],

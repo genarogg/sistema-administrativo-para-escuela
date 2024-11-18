@@ -1,0 +1,29 @@
+.simple-grid2 {
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        align-items: start;
+
+
+
+        .box {
+            padding: 10px 20px;
+        }
+    }
+}
+
+@media screen and (min-width: 700px) {
+    .simple-grid2 {
+        .grid {
+
+            .order-1 {
+                order: 2;
+            }
+
+            .order-1 {
+                order: 1;
+            }
+        }
+    }
+}
