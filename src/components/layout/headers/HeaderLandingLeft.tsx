@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { FaInfoCircle, FaBullseye, FaEye, FaSignInAlt } from "react-icons/fa";
 
-import { FaHandHoldingDollar } from "react-icons/fa6";
+
 import { TiHome } from "react-icons/ti";
 
 import { Btn3Hamburgues } from "@btn";

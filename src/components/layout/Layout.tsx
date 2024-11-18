@@ -5,9 +5,10 @@ import { redesSociales } from "../../const/redesSociales";
 
 interface LayoutProps {
     children: React.ReactNode;
+    header?: React.ReactNode;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout: React.FC<LayoutProps> = ({ children, header }) => {
     const TextLogo = () => {
         return (
             <h2>e.t. ademar <br /> vasquez chavez</h2>
@@ -15,10 +16,16 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     }
 
     return (<>
-        <HeaderLandingLeft logoText={<TextLogo />} />
+        {
+            header
+                ? header
+                : <HeaderLandingLeft logoText={<TextLogo />} />
+        }
         {children}
-        <Footer redesSociales={redesSociales} mensaje="Con ❤️ para e.t. ademar
-vasquez chavez" />
+        <Footer
+            redesSociales={redesSociales}
+            mensaje="Con ❤️ para e.t. ademar vasquez chavez"
+        />
     </>
     );
 }

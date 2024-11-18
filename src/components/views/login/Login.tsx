@@ -12,7 +12,7 @@ interface LoginProps { }
 const Login: React.FC<LoginProps> = () => {
     return (
         <Layout>
-            <WallPaperBasico img={"/home/download.jpg"} redesSociales={redesSociales}>
+            <WallPaperBasico img={"/home/download.jpg"}>
                 <div className="login-page">
                     <div className="constiner-all-contacto">
                         <div className="container-contacto">
