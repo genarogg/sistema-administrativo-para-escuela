@@ -1,4 +1,5 @@
 .header {
+  font-family: "Nunito";
   .container-nav {
     nav {
       ul {
@@ -9,7 +10,7 @@
           display: flex;
           align-items: center;
           height: 25px;
-          color: #fff;
+          color: $color-quinary;
           font-size: 13px;
           font-weight: 700;
           letter-spacing: 1px;
@@ -17,7 +18,7 @@
 
           .container-icono {
             margin: 0 5px 0 25px;
-            color: $color-secondary;
+            color: $color-tertiary;
 
             .icono {
               display: flex;

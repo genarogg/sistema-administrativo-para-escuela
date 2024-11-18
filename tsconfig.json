@@ -20,6 +20,8 @@
       "@fn/*": ["./src/functions/*"],
       "@imgSVG/*":["./src/imgSVG/*"],
 
+      "@view/*": ["./src/components/views/*"],
+
       "@layout": ["./src/components/layout/Layout.tsx"],
     }
   },

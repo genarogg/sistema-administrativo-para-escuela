@@ -1,12 +1,54 @@
+import { useEffect } from "react";
 
-interface WallPaperBasicoProps {
+import { Icono } from "@nano";
 
+interface EnlaceRedSocial {
+    href: string;
+    className: string;
+    icono: JSX.Element;
 }
 
-const WallPaperBasico: React.FC<WallPaperBasicoProps> = () => {
-    return (<>
-     <div className="WallPaperBasico-basico"></div>
-    </>);
+interface WallpaperBasicoProps {
+    img: string;
+    redesSociales?: EnlaceRedSocial[];
+    title: string;
+    subTitle: string;
 }
 
-export default WallPaperBasico;
+const WallpaperBasico: React.FC<WallpaperBasicoProps> = ({ img, redesSociales, title, subTitle }) => {
+    useEffect(() => {
+        const imgBgElement = document.querySelector(
+            ".wallpaper-basico"
+        ) as HTMLImageElement;
+
+        imgBgElement.style.backgroundImage = `url(${img})`;
+    }, []);
+
+
+
+    return (
+        <div className="wallpaper-basico">
+            <div className="text">
+                <h1>{title}</h1>
+                <p>{subTitle}</p>
+            </div>
+
+            {
+                redesSociales && (<div className="redes-sociales">
+                    <ul>
+                        {redesSociales.map((enlace, index) => (
+                            <li key={index}>
+                                <a href={enlace.href} className={enlace.className}>
+                                    <Icono icono={enlace.icono} />
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+                )
+            }
+        </div>
+    );
+};
+
+export default WallpaperBasico;

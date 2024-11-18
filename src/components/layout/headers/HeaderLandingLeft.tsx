@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { FaEnvelopeOpenText, FaCommentDots, FaLightbulb } from "react-icons/fa";
 import { GoFileDirectoryFill } from "react-icons/go";
@@ -14,7 +14,9 @@ import LogoMarca from "@imgSVG/Logo";
 
 import scrollHeader from "./HeaderFn/scrollHeader";
 
-interface HeaderLandingLeftProps {}
+interface HeaderLandingLeftProps {
+  logoText?: React.ReactNode;
+}
 
 // Definir los elementos del header
 const home = { href: "#", logo: "/marca/logo.svg", alt: "Logo" };
@@ -36,14 +38,14 @@ const menuItems = [
   { href: "#contacto", label: "Contacto" },
 ]; */
 
-const HeaderLandingLeft: React.FC<HeaderLandingLeftProps> = () => {
+const HeaderLandingLeft: React.FC<HeaderLandingLeftProps> = ({ logoText = "" }) => {
   const [isActive, setIsActive] = useState(false);
 
   const Logo = () => {
     return (
       <div className="container-logo">
         <A href={home.href}>
-          <LogoMarca />
+          {logoText !== "" ? logoText : <LogoMarca />}
         </A>
       </div>
     );

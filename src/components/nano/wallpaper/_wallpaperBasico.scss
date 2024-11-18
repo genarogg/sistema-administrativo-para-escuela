@@ -1,0 +1,87 @@
+.wallpaper-basico {
+    height: 100vh;
+    height: 100dvh;
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+    display: flex;
+
+    position: relative;
+
+    .text {
+        color: #fff;
+        text-align: center;
+        backdrop-filter: blur(1px);
+
+
+        h1 {
+            font-size: 48px;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        p {
+            font-size: 24px;
+            text-transform: capitalize;
+        }
+    }
+
+    .redes-sociales {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+
+        ul {
+            display: flex;
+
+            li {
+                background-color: #fff;
+
+                $size: 30px;
+                width: $size;
+                height: $size;
+
+                border-radius: 5px;
+                margin-left: 15px;
+                @include center-flex-xy;
+
+              
+
+                span {
+                    @include center-flex-xy;
+                    transition: $transition;
+                }
+
+                &:active {
+                    transform: scale(0.9);
+                }
+
+                &:hover {
+                    .facebook {
+                        color: #3b5998;
+                    }
+
+                    .instagram {
+                        color: #e4405f;
+                    }
+
+                    .twitter {
+                        color: #1da1f2;
+                    }
+                }
+
+                a {
+                    color: $color-secondary;
+                }
+            }
+        }
+    }
+
+}
