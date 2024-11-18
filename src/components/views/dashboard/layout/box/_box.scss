@@ -1,0 +1,12 @@
+.box{
+    min-height: 50vh;
+    min-width: 70vw;
+    aspect-ratio: 16/9;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 100px 0;
+    // background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}

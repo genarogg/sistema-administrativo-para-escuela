@@ -1,11 +1,11 @@
-import Dashboard from "@view/dashboard/Dashboard";
+import Inicio from "@/components/views/dashboard/Inicio";
 
 interface inicioProps {
 
 }
 
 const inicio: React.FC<inicioProps> = () => {
-    return (<Dashboard />);
+    return (<Inicio />);
 }
 
 export default inicio;

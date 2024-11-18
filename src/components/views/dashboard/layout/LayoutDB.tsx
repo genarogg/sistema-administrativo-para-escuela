@@ -8,6 +8,7 @@ import { Btn3Hamburgues } from "@btn";
 import { A } from "@nano";
 import { FaInfoCircle, FaBullseye, FaEye, FaSignInAlt } from "react-icons/fa";
 import { WallPaperBasico } from "@wallpaper";
+import Box from "./box/Box";
 interface LayoutDBProps {
     children: React.ReactNode;
     logoText?: React.ReactNode;
@@ -42,6 +43,13 @@ const LayoutDB: React.FC<LayoutDBProps> = ({ children, logoText = "" }) => {
             <header className="header landing-left">
                 <div className="desktop" id="desktopHeader">
                     <Logo />
+
+                    <Nav menuItems={menuItems} />
+                    <Btn3Hamburgues
+                        className={"btn-desktop"}
+                        isActive={isActive}
+                        setIsActive={setIsActive}
+                    />
                 </div>
                 <Nav
                     menuItems={menuItems}
@@ -59,6 +67,7 @@ const LayoutDB: React.FC<LayoutDBProps> = ({ children, logoText = "" }) => {
             <main className="maindb">
                 <WallPaperBasico img={"/home/download.jpg"}>
                     {children}
+                    <Box></Box>
                 </WallPaperBasico>
             </main>
         </Layout>

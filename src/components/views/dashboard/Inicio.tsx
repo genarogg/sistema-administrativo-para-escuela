@@ -1,10 +1,10 @@
 import LayoutDB from "./layout/LayoutDB";
 
-interface DashboardProps {
+interface InicioProps {
 
 }
 
-const Dashboard: React.FC<DashboardProps> = () => {
+const Inicio: React.FC<InicioProps> = () => {
     return (
         <LayoutDB>
             <p>hola</p>
@@ -12,4 +12,4 @@ const Dashboard: React.FC<DashboardProps> = () => {
     );
 }
 
-export default Dashboard;
+export default Inicio;
