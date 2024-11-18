@@ -4,12 +4,16 @@
 // $color-quaternary: #1c1c1c;
 
 $color-primary: #02332f;
+$gris: $color-primary;
 $color-secondary: #045e55;
+$azul: $color-secondary;
+
+
 
 $color-tertiary: #fff;
 $color-quaternary: #fff;
 $color-quinary: #a6e194;
-
+$amarillo:$color-quinary;
 $font-family: "Nunito", sans-serif;
 $font-size: 16px;
 $font-weight: 400;
@@ -23,6 +27,5 @@ $border: 1px solid $border-color;
 
 $transition: 600ms all ease;
 $tex-color-back: #2f2e41;
+
 $text-color-white: #fff;
-
-

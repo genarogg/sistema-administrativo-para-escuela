@@ -6,16 +6,18 @@ interface EnlaceRedSocial {
     href: string;
     className: string;
     icono: JSX.Element;
+
 }
 
 interface WallpaperBasicoProps {
     img: string;
     redesSociales?: EnlaceRedSocial[];
-    title: string;
-    subTitle: string;
+    title?: string;
+    subTitle?: string;
+    children?: React.ReactNode;
 }
 
-const WallpaperBasico: React.FC<WallpaperBasicoProps> = ({ img, redesSociales, title, subTitle }) => {
+const WallpaperBasico: React.FC<WallpaperBasicoProps> = ({ children, img, redesSociales, title, subTitle }) => {
     useEffect(() => {
         const imgBgElement = document.querySelector(
             ".wallpaper-basico"
@@ -28,10 +30,14 @@ const WallpaperBasico: React.FC<WallpaperBasicoProps> = ({ img, redesSociales, t
 
     return (
         <div className="wallpaper-basico">
-            <div className="text">
-                <h1>{title}</h1>
-                <p>{subTitle}</p>
-            </div>
+            {
+                title && (
+                    <div className="text">
+                        <h1>{title}</h1>
+                        <p>{subTitle}</p>
+                    </div>
+                )
+            }
 
             {
                 redesSociales && (<div className="redes-sociales">
@@ -47,6 +53,8 @@ const WallpaperBasico: React.FC<WallpaperBasicoProps> = ({ img, redesSociales, t
                 </div>
                 )
             }
+
+            {children && <>{children}</>}
         </div>
     );
 };
