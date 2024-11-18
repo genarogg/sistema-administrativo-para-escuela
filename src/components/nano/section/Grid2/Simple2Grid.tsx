@@ -33,11 +33,11 @@ const Simple2Grid: React.FC<Simple2GridProps> = ({
             {titleSection && <TitleSection titulo={titleSection} id={titleId} className={titleClassName} />}
 
             <div className="grid">
-                <div className={`box ${reorder ? "order-1" : ""}`}>
+                <div className={`box left ${reorder ? "order-1" : ""}`}>
                     {textImgSrc && <div className="container-img-text"><Image src={textImgSrc} alt={textImgAlt} layout="intrinsic" width={textSizeImg} height={textSizeImg} /></div>}
                     <p className="text">{textContent}</p>
                 </div>
-                <div className={`box ${reorder ? "order-2" : ""}`}>
+                <div className={`box right ${reorder ? "order-2" : ""}`}>
                     <Image src={imgSrc} alt={imgAlt} layout="intrinsic" width={sizeImg} height={sizeImg} />
                 </div>
             </div>

@@ -2,17 +2,17 @@ import { FaInstagram, FaFacebookF, FaTwitter } from "react-icons/fa6";
 
 const redesSociales = [
     {
-        href: "#",
+        href: "https://www.instagram.com/et.ademarvasquezchavez",
         className: "instagram",
         icono: <FaInstagram />,
     },
     {
-        href: "#",
+        href: "https://www.facebook.com/ETCRADEMARVASQUEZ/?locale=es_LA",
         className: "facebook",
         icono: <FaFacebookF />,
     },
     {
-        href: "#",
+        href: "https://x.com/ademarvasquez1?mx=2",
         className: "twitter",
         icono: <FaTwitter />,
     },

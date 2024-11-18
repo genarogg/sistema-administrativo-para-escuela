@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-import { FaEnvelopeOpenText, FaCommentDots, FaLightbulb } from "react-icons/fa";
-import { GoFileDirectoryFill } from "react-icons/go";
+import { FaInfoCircle, FaBullseye, FaEye, FaSignInAlt } from "react-icons/fa";
+
 import { FaHandHoldingDollar } from "react-icons/fa6";
 import { TiHome } from "react-icons/ti";
 
@@ -22,11 +22,11 @@ interface HeaderLandingLeftProps {
 const home = { href: "#", logo: "/marca/logo.svg", alt: "Logo" };
 const menuItems = [
   { href: "/", label: "Inicio", icon: <TiHome /> },
-  { href: "#quienes-somos", label: "Quiénes Somos", icon: <FaCommentDots /> },
-  { href: "#servicios", label: "Servicios", icon: <FaLightbulb /> },
-  { href: "#proyectos", label: "Proyectos", icon: <GoFileDirectoryFill /> },
-  { href: "#precios", label: "Precios", icon: <FaHandHoldingDollar /> },
-  { href: "#contacto", label: "Contacto", icon: <FaEnvelopeOpenText /> },
+  { href: "#nosotros", label: "nosotros", icon: <FaInfoCircle /> },
+  { href: "#mision", label: "misión", icon: <FaBullseye /> },
+  { href: "#vision", label: "visión", icon: <FaEye /> },
+  // { href: "#contacto", label: "contacto", icon: <FaHandHoldingDollar /> },
+  { href: "/login", label: "login", icon: <FaSignInAlt /> },
 ];
 
 /* const menuItems = [

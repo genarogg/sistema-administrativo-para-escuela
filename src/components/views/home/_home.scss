@@ -1,0 +1,28 @@
+.hamburguer3 .hamburguer .bar{
+    background-color: #fff;
+}
+
+.simple-grid2 .grid .text{
+    text-align: center;
+}
+
+@media screen and (max-width: 850px) {
+    .simple-grid2 {
+        .grid {
+            grid-template-columns: 1fr;
+            .right {
+                display: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .simple-grid2 {
+        .grid {
+            padding: 20px 0px;
+        }}
+    footer .redes-sociales{
+        bottom: 50px;
+    }
+}

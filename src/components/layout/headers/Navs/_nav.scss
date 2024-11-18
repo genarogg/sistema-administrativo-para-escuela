@@ -76,8 +76,8 @@
 
   .header {
     .container-nav.nav-xs {
-      background-color: rgba($color-primary, 0.3);
-      background-color: $color-quaternary;
+      background-color: rgba($color-secondary, 0.3);
+      // background-color: $color-secondary;
       backdrop-filter: blur(10px);
       height: 100vh;
       width: 200px;
