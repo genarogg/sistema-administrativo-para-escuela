@@ -1,4 +1,7 @@
 import HeaderLandingLeft from "./headers/HeaderLandingLeft";
+import Footer from "./footer/Footer";
+import { redesSociales } from "../../const/redesSociales";
+
 
 interface LayoutProps {
     children: React.ReactNode;
@@ -14,6 +17,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     return (<>
         <HeaderLandingLeft logoText={<TextLogo />} />
         {children}
+        <Footer redesSociales={redesSociales} mensaje="Con ❤️ para e.t. ademar
+vasquez chavez" />
     </>
     );
 }

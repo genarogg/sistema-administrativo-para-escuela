@@ -10,6 +10,9 @@ interface Simple2GridProps {
     imgAlt?: string;
     reorder?: boolean;
     sizeImg?: number;
+    textImgSrc?: string;
+    textImgAlt?: string;
+    textSizeImg?: number;
 }
 
 const Simple2Grid: React.FC<Simple2GridProps> = ({
@@ -20,7 +23,10 @@ const Simple2Grid: React.FC<Simple2GridProps> = ({
     imgSrc,
     imgAlt = "Imagen",
     reorder = false,
-    sizeImg = 500
+    sizeImg = 500,
+    textImgSrc,
+    textImgAlt = "",
+    textSizeImg = 500
 }) => {
     return (
         <div className="simple-grid2">
@@ -28,10 +34,11 @@ const Simple2Grid: React.FC<Simple2GridProps> = ({
 
             <div className="grid">
                 <div className={`box ${reorder ? "order-1" : ""}`}>
-                    {textContent}
+                    {textImgSrc && <div className="container-img-text"><Image src={textImgSrc} alt={textImgAlt} layout="intrinsic" width={textSizeImg} height={textSizeImg} /></div>}
+                    <p className="text">{textContent}</p>
                 </div>
                 <div className={`box ${reorder ? "order-2" : ""}`}>
-                    <Image src={imgSrc} alt={imgAlt} layout="responsive" width={sizeImg} height={sizeImg} className="w-full h-auto" />
+                    <Image src={imgSrc} alt={imgAlt} layout="intrinsic" width={sizeImg} height={sizeImg} />
                 </div>
             </div>
         </div>
