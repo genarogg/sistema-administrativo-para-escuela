@@ -23,6 +23,7 @@
       "@view/*": ["./src/components/views/*"],
       "@form": ["./src/components/nano/form/index.tsx"],
       "@layout": ["./src/components/layout/Layout.tsx"],
+      "@tablet": ["./src/components/nano/tablet/index.tsx"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

@@ -9,7 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "ag-grid-react": "^32.3.3",
+    "@ag-grid-community/react": "^32.2.2",
+    "ag-grid-react": "^32.2.2",
     "next": "14.2.18",
     "react": "^18",
     "react-dom": "^18",

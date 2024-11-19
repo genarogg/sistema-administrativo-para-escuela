@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/styles/ag-grid.css";
-import "ag-grid-community/styles/ag-theme-alpine.css";
+import "ag-grid-community/styles/ag-theme-balham.css";
 
 interface MyAgGridReactProps {
     rowData: any[];
@@ -14,15 +14,24 @@ const MyAgGridReact: React.FC<MyAgGridReactProps> = ({
     columnDefs,
     quickFilterText,
 }) => {
+    const getRowStyle = (params:any) => {
+        if (params.node.rowIndex % 2 === 0) {
+            return { background: '#f5f5f5' }; // Color para las filas impares
+        }
+        return undefined;
+    };
+
     return (
         <div className="container-my-ag-grid">
-            <div className="tablet">
+            <div className="tablet ag-theme-balham" style={{ height: "70vh", width: "100%" }}>
                 <AgGridReact
                     rowData={rowData.reverse()}
                     columnDefs={columnDefs}
                     pagination={true}
                     paginationPageSize={30}
                     quickFilterText={quickFilterText}
+                    getRowStyle={getRowStyle} 
+                 
                 />
             </div>
         </div>
