@@ -20,6 +20,8 @@ interface PlantelProps {
 
 const Plantel: React.FC<PlantelProps> = () => {
 
+    
+
     const initialPlantelState = {
         id: 1,
         cod_cir: "",

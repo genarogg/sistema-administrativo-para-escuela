@@ -20,6 +20,13 @@ interface LayoutDBProps {
 
 const LayoutDB: React.FC<LayoutDBProps> = ({ where = "", children, logoText = "", titulo = "", btns, search }) => {
 
+    useEffect(() => {
+        window.onscroll = () => {
+            scrollHeader();
+        };
+    }, []);
+
+
     const Header = () => {
         const menuItems = [
             { href: "/dashboard/plantel", label: "plantel", icon: <TiHome /> },

@@ -19,19 +19,37 @@
         flex-direction: column;
 
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         row-gap: 20px;
         column-gap: 25px;
         column-gap: 25px;
         justify-items: center;
         align-items: center;
 
-        .container-footer {
-            
+        .title {
+            height: 40px;
+            text-transform: capitalize;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .btn-submit-basic {
-            grid-column: span 2;
+        .grid-2 {
+            grid-template-columns: 1fr 1fr;
+            display: grid;
+
+            row-gap: 20px;
+            column-gap: 25px;
         }
+
+
+
+        .grid-span-2 {
+            grid-column: span 2;
+
+            @include width(100%);
+        }
+
+
     }
 }

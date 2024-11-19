@@ -15,10 +15,118 @@
         // background-color: rgba($color-secondary, 0.5);
         padding: 10px 20px;
 
+        display: flex;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        // justify-items: center;
+
         h3 {
-            text-align: center;
+            // text-align: center;
             color: $color-quinary;
             text-transform: capitalize;
         }
+
+        .btns {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            .btn-normal-basic {
+                height: 28px;
+                background-color: transparent;
+                // border: 1px solid rgba(28, 28, 28, 0.5);
+                border-radius: 10px;
+                color: #a6e194;
+                cursor: pointer;
+                font-size: 18px;
+                font-weight: 600;
+                height: 100%;
+                max-width: 150px;
+                outline: none;
+                position: relative;
+                width: 100%;
+
+                button {
+                    color: #fff;
+
+                    &:hover {
+                        background-color: $color-primary;
+                        color: #fff;
+                    }
+
+                    &:active {
+                        background-color: $color-primary;
+                        color: #fff;
+                    }
+
+                    &:focus {
+                        background-color: $color-primary;
+                        color: #fff;
+                    }
+                }
+            }
+
+            .container-input.select {
+                @include width(150px);
+            }
+
+            #select {
+                @include width(150px);
+                color: #fff;
+
+                * {
+                    @include width(150px);
+                    background-color: rgba($color-secondary, 0.5);
+                    color: #fff;
+                }
+
+                .css-1wy0on6 {
+                    display: none;
+                }
+
+                .css-1cfo1cf{
+                    padding: 0;
+                    margin: 0;
+                }
+
+                .css-qr46ko{
+                    padding: 0;
+                }
+                .css-1nmdiq5-menu {
+                    margin: 0;
+                }
+
+                .css-hlgwow,
+                .css-13cymwt-control {
+                    @include height(28px);
+                    border-radius: 10px;
+                }
+            }
+
+            .holder,
+            .ag-header-cell-resize {
+                left: 0;
+                display: none;
+
+                
+            }
+
+            .ag-header-cell.ag-header-cell-sortable.ag-focus-managed {
+                ::before {
+                    display: none;
+                }
+            }
+        }
+
+
     }
 }

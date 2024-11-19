@@ -1,7 +1,10 @@
-import React from "react";
+
+import React, { useState } from "react";
 import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-balham.css";
+
+import { Input } from "@form"
 
 interface MyAgGridReactProps {
     rowData: any[];
@@ -14,9 +17,9 @@ const MyAgGridReact: React.FC<MyAgGridReactProps> = ({
     columnDefs,
     quickFilterText,
 }) => {
-    const getRowStyle = (params:any) => {
+    const getRowStyle = (params: any) => {
         if (params.node.rowIndex % 2 === 0) {
-            return { background: '#f5f5f5' }; // Color para las filas impares
+            return { background: '#045e55' }; // Color para las filas impares
         }
         return undefined;
     };
@@ -30,8 +33,8 @@ const MyAgGridReact: React.FC<MyAgGridReactProps> = ({
                     pagination={true}
                     paginationPageSize={30}
                     quickFilterText={quickFilterText}
-                    getRowStyle={getRowStyle} 
-                 
+                    getRowStyle={getRowStyle}
+
                 />
             </div>
         </div>
@@ -43,13 +46,24 @@ interface SearchInputProps {
 }
 
 const SearchInput: React.FC<SearchInputProps> = ({ setQuickFilterText }) => {
+    const [searchValue, setSearchValue] = useState("");
+
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchValue(event.target.value);
+        setQuickFilterText(event.target.value);
+    };
+
     return (
-        <input
+        <div className="tablet-search"> <Input
             type="text"
+            name="search"
             placeholder="Buscar..."
-            onChange={(e) => setQuickFilterText(e.target.value)}
-        />
+            value={searchValue}
+            valueChange={handleInputChange}
+        /></div>
+
     );
 };
+
 
 export { MyAgGridReact, SearchInput };
