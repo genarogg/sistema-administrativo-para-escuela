@@ -21,7 +21,7 @@
       "@imgSVG/*":["./src/imgSVG/*"],
       "@section": ["./src/components/nano/section/index.tsx"],
       "@view/*": ["./src/components/views/*"],
-
+      "@form": ["./src/components/nano/form/index.tsx"],
       "@layout": ["./src/components/layout/Layout.tsx"],
     }
   },

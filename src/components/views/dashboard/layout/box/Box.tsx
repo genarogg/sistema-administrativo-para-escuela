@@ -7,7 +7,7 @@ interface BoxProps {
 const Box: React.FC<BoxProps> = ({ titulo, children }) => {
     return (
         <>
-            <div className="box">
+            <div className="box-container">
                 <div className="contenido">
                     <div className="contenido-header">
                         <h3>{titulo}</h3>

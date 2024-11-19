@@ -14,11 +14,11 @@
   }
 
   &:hover {
-    border: 1px solid $color-secondary;
+    border: 1px solid $color-quinary;
   }
 
   &.focus {
-    border: 1px solid $color-secondary;
+    border: 1px solid $color-quinary;
 
     span.holder {
       font-size: 14px;
@@ -50,7 +50,8 @@
   }
 
   span.holder {
-    background-color: $gris;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
     color: #fff;
     font-size: 18px;
     left: 40px;
