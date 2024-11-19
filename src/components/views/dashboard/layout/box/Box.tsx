@@ -1,28 +1,19 @@
 
 interface BoxProps {
-
+    titulo: string;
+    children: React.ReactNode;
 }
 
-const Box: React.FC<BoxProps> = () => {
+const Box: React.FC<BoxProps> = ({ titulo, children }) => {
     return (
         <>
             <div className="box">
-                <div className="aside">
-                    <div className="aside-content">
-                        <div className="aside-header">
-                            <h3>hola2</h3>
-                        </div>
-                        <div className="aside-body">
-                            <p>hola</p>
-                        </div>
-                    </div>
-                </div>
                 <div className="contenido">
                     <div className="contenido-header">
-                        <h3>hola</h3>
+                        <h3>{titulo}</h3>
                     </div>
                     <div className="contenido-body">
-                        <p>hola</p>
+                        {children}
                     </div>
                 </div>
             </div>

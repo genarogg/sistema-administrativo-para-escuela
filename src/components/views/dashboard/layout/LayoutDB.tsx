@@ -12,13 +12,14 @@ import Box from "./box/Box";
 interface LayoutDBProps {
     children: React.ReactNode;
     logoText?: React.ReactNode;
+    where?: string;
 }
 
-const LayoutDB: React.FC<LayoutDBProps> = ({ children, logoText = "" }) => {
+const LayoutDB: React.FC<LayoutDBProps> = ({ where = "", children, logoText = "" }) => {
 
     const Header = () => {
         const menuItems = [
-            { href: "/", label: "Inicio", icon: <TiHome /> },
+            { href: "/plantel", label: "plantel", icon: <TiHome /> },
             { href: "#nosotros", label: "nosotros", icon: <FaInfoCircle /> },
             { href: "#mision", label: "misión", icon: <FaBullseye /> },
             { href: "#vision", label: "visión", icon: <FaEye /> },
@@ -64,10 +65,11 @@ const LayoutDB: React.FC<LayoutDBProps> = ({ children, logoText = "" }) => {
 
     return (
         <Layout header={<Header />}>
-            <main className="maindb">
+            <main className={`maindb ${where}`}>
                 <WallPaperBasico img={"/home/download.jpg"}>
-                    {children}
-                    <Box></Box>
+                    <Box titulo="">
+                        {children}
+                    </Box>
                 </WallPaperBasico>
             </main>
         </Layout>

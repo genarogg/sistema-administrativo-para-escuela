@@ -1,4 +1,4 @@
-import Inicio from "@/components/views/dashboard/Inicio";
+import Inicio from "@/components/views/dashboard/inicio/Inicio";
 
 interface inicioProps {
 
