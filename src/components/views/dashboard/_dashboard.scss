@@ -1,6 +1,7 @@
 @import "./layout/layout";
 @import "./layout/box/box";
 @import "./inicio/inicio";
+@import "./personal/personal";
 
 .container-form {
     width: 100%;
@@ -25,7 +26,9 @@
         justify-items: center;
         align-items: center;
 
-        .container-footer {}
+        .container-footer {
+            
+        }
 
         .btn-submit-basic {
             grid-column: span 2;

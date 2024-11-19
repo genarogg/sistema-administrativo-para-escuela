@@ -14,14 +14,16 @@ interface LayoutDBProps {
     logoText?: React.ReactNode;
     where?: string;
     titulo?: string;
+    btns?: React.ReactNode;
+    search?: React.ReactNode;
 }
 
-const LayoutDB: React.FC<LayoutDBProps> = ({ where = "", children, logoText = "" ,titulo=""}) => {
+const LayoutDB: React.FC<LayoutDBProps> = ({ where = "", children, logoText = "", titulo = "", btns, search }) => {
 
     const Header = () => {
         const menuItems = [
             { href: "/dashboard/plantel", label: "plantel", icon: <TiHome /> },
-            { href: "#nosotros", label: "nosotros", icon: <FaInfoCircle /> },
+            { href: "/dashboard/personal", label: "personal", icon: <FaInfoCircle /> },
             { href: "#mision", label: "misión", icon: <FaBullseye /> },
             { href: "#vision", label: "visión", icon: <FaEye /> },
             // { href: "#contacto", label: "contacto", icon: <FaHandHoldingDollar /> },
@@ -68,7 +70,7 @@ const LayoutDB: React.FC<LayoutDBProps> = ({ where = "", children, logoText = ""
         <Layout header={<Header />}>
             <main className={`maindb ${where}`}>
                 <WallPaperBasico img={"/home/download.jpg"}>
-                    <Box titulo={titulo}>
+                    <Box titulo={titulo} btns={btns} search={search}>
                         {children}
                     </Box>
                 </WallPaperBasico>
