@@ -1,4 +1,4 @@
-import Add from "@/components/views/dashboard/estudiante/crud/Add";
+import Add from "@/components/views/dashboard/asistencia/crud/Add";
 
 interface agregarProps {
 

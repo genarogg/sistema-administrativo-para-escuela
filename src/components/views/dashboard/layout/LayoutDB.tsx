@@ -32,7 +32,7 @@ const LayoutDB: React.FC<LayoutDBProps> = ({ where = "", children, logoText = ""
             { href: "/dashboard/plantel", label: "plantel", icon: <TiHome /> },
             { href: "/dashboard/personal", label: "personal", icon: <FaInfoCircle /> },
             { href: "/dashboard/estudiante", label: "estudiante", icon: <FaBullseye /> },
-            { href: "#vision", label: "visión", icon: <FaEye /> },
+            { href: "/dashboard/asistencia", label: "asistencia", icon: <FaEye /> },
             // { href: "#contacto", label: "contacto", icon: <FaHandHoldingDollar /> },
             { href: "/login", label: "login", icon: <FaSignInAlt /> },
         ];

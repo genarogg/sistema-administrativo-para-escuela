@@ -489,7 +489,8 @@ const Add: React.FC<AddProps> = () => {
                             />
 
                         </div>
-                        <BtnSubmitBasic text="Agregar Empleado" loading={false} />
+                        <div className="container-footer"> <BtnSubmitBasic text="Agregar" loading={false} /></div>
+
                     </form>
                 </div>
 

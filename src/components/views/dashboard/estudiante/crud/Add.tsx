@@ -5,100 +5,173 @@ import { notify } from "@nano";
 import LayoutDB from "../../layout/LayoutDB";
 
 //iconos
+import {
+    FaUser,
+    FaIdCard,
+    FaMapMarkerAlt,
+    FaPhone,
+    FaEnvelope,
+    FaGraduationCap,
+    FaBriefcase,
+    FaBuilding,
+    FaBirthdayCake,
+    FaShoePrints,
+    FaSchool,
+    FaRulerVertical,
+    FaWeight,
+    FaRulerCombined,
+    FaHandPaper,
+    FaChild,
+    FaTshirt,
+    FaRoad,
+    FaWheelchair,
+    FaHome,
+    FaNotesMedical,
+    FaPills,
+    FaUserTie,
+    FaCalendarAlt,
+} from "react-icons/fa";
 
-import { FaUser } from "react-icons/fa6";
-import { FaIdCard } from "react-icons/fa6";
-import { MdDateRange } from "react-icons/md";
-import { FaPhoneFlip } from "react-icons/fa6";
-import { BsEnvelopeFill } from "react-icons/bs";
-import { BiSolidDirections } from "react-icons/bi";
-
-import { FaUserGraduate } from "react-icons/fa6";
-import { FaUserTie } from "react-icons/fa6";
-import { MdHomeRepairService } from "react-icons/md";
-import { MdOutlineWorkspacePremium } from "react-icons/md";
-import { GoWorkflow } from "react-icons/go";
-import { PiIntersectSquareBold } from "react-icons/pi";
-import { SiAzurefunctions } from "react-icons/si";
-import { RiFunctionAddLine } from "react-icons/ri";
-
-import { FaUserInjured } from "react-icons/fa";
-import { FaArtstation } from "react-icons/fa";
-
-import { FaUsers } from "react-icons/fa";
-import { ImMoveUp } from "react-icons/im";
-import { FaSlidersH } from "react-icons/fa";
-import { BiSolidInstitution } from "react-icons/bi";
-import { SiObservable } from "react-icons/si";
 interface AddProps {
 
 }
 
 const Add: React.FC<AddProps> = () => {
-    const [formData, setFormData] = useState({
+
+    const [estudianteData, setEstudianteData] = useState({
         // informacion del usuario
-        nombres: "",
         apellidos: "",
+        nombres: "",
+        sex: "",
+        nacionalidad: "",
+
         ci: "",
-        fecha_nac: "",
-        telefono: "",
-        correo_electronico: "",
-        direccion_de_habitacion: "",
+        fecha_nacimiento: "",
+        lugar_nacimiento: "",
+        entd_federativa: "",
 
-        // informacion del empleo
-        titulo_obtenido: "",
-        titulo_pregrado: "",
-        area_docente_especialista: "",
+        plantel_de_procedencia: "",
+        talla: "",
+        peso: "",
+        medidas: "",
 
-        fecha_ingreso_mppe: "",
-        codigo_cargo: "",
-        dependencia_nominal: "",
-        estatus: "",
-
-        reposo_permiso: "",
-        anos_servicio: "",
-        grado_seccion: "",
-        funcion_trabajo: "",
-        acarigua: "",
-        observaciones: "",
+        edad: "",
+        lateralidad: "",
+        talla_camisa: "",
+        talla_pantalon: "",
+        talla_zapato: "",
     });
 
-    const [formDataPolitica, setFormDataPolitica] = useState({
-        inscrito_psuv: "",
-        pertenece_movimiento_social: "",
-        carnet_patria_codigo: "",
-        carnet_patria_serial: "",
-        centro_votacion: "",
-        tipo_voto: "",
+    const [viaDeAccesoData, setViaDeAccesoData] = useState({
+        via_de_acceso_al_lugar_donde_vive: "",
+        reprecentante_legal: "",
+        con_quien_vive: "",
+
+        condicion_especial: "",
+        observacion_de_condicion: "",
+
+        el_estudiante_consume_medicamento: "",
+        observacion_de_medicamento: "",
     });
 
-    const [formDataEmpleado, setFormDataEmpleado] = useState({
-        tipo_empleado: "",
+    const [datosMadre, setDatosMadre] = useState({
+        apellidos: "",
+        nombres: "",
+        nacionalidad: "",
+        cedula: "",
+
+        urb_br: "",
+        direccion_habitacion_av: "",
+        calle: "",
+        casa_apartamento: "",
+        numero_habitacion: "",
+        referencia: "",
+        ciudad: "",
+
+        parroquia: "",
+        estado: "",
+        movil_casa: "",
+
+        telefono_personal: "",
+        telefono_trabajo: "",
+        email: "",
+
+        nivelAcademico: "",
+        profesion: "",
+        lugarTrabajo: "",
+        cargo: "",
     });
 
-    const estatusData = [
-        { value: "Activo", label: "Activo" },
-        { value: "Inactivo", label: "Inactivo" },
+    const [datosPadre, setDatosPadre] = useState({
+        apellidos: "",
+        nombres: "",
+        nacionalidad: "",
+        cedula: "",
+
+        urb_br: "",
+        direccion_habitacion_av: "",
+        calle: "",
+        casa_apartamento: "",
+        numero_habitacion: "",
+        referencia: "",
+        ciudad: "",
+
+        parroquia: "",
+        estado: "",
+        movil_casa: "",
+
+        telefono_personal: "",
+        telefono_trabajo: "",
+        email: "",
+
+        nivelAcademico: "",
+        profesion: "",
+        lugarTrabajo: "",
+        cargo: "",
+    });
+
+    const [datosRepresentante, setDatosRepresentante] = useState({
+        parentesco: "",
+        apellidos: "",
+        nombres: "",
+        nacionalidad: "",
+        cedula: "",
+
+        urb_br: "",
+        fecha_nacimiento: "",
+        direccion_habitacion_av: "",
+        calle: "",
+        casa_apartamento: "",
+        numero_habitacion: "",
+
+        referencia: "",
+        ciudad: "",
+        parroquia: "",
+        estado: "",
+        telefono_habitacion: "",
+        telefono_personal: "",
+
+        email: "",
+        profesion: "",
+        lugarTrabajo: "",
+        telefono_trabajo: "",
+        cargo: "",
+    });
+
+    const [periodoEscolar, setPeriodoEscolar] = useState({
+        inicio_periodo_escolar: "",
+        fin_periodo_escolar: "",
+    });
+
+    const sex = [
+        { value: "Masculino", label: "Masculino" },
+        { value: "Femenino", label: "Femenino" },
     ];
 
-    const politicaData = [
-        { value: "Si", label: "Si" },
-        { value: "No", label: "No" },
+    const nacionalidad = [
+        { value: "Venezolano", label: "Venezolano" },
+        { value: "Extranjero", label: "Extranjero" },
     ];
-
-    const tipoVoto = [
-        { value: "DURO", label: "DURO" },
-        { value: "BLANDO", label: "BLANDO" },
-        { value: "NULO ", label: "NULO " },
-    ];
-
-    const tipoEmpleado = [
-        { value: "docentes", label: "Docente" },
-        { value: "administrativos", label: "Administrativo" },
-        { value: "obreros", label: "Obrero" },
-        { value: "cocineros", label: "Cocinero" },
-    ];
-
 
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -106,7 +179,7 @@ const Add: React.FC<AddProps> = () => {
 
     return (
         <>
-            <LayoutDB where="add-personal">
+            <LayoutDB where="add-estudiante">
                 <div className="container-form">
                     <form
                         className="form-basic"
@@ -115,381 +188,1284 @@ const Add: React.FC<AddProps> = () => {
                             onSubmit(e);
                         }}
                     >
-                        <div className="grid-2 ">
-                            <div className="title grid-span-2 ">
-                                <h4>tipo de empleado </h4>
-                            </div>
-                            <div className="grid-span-2">
-                                <SelectInput
-                                    icono={<SiObservable />}
-                                    placeholder="Tipo de Empleado"
-                                    content={true}
-                                    name="tipo_empleado"
-                                    value={formDataEmpleado.tipo_empleado}
-                                    valueChange={(e: any) =>
-                                        setFormDataEmpleado({ ...formDataEmpleado, tipo_empleado: e.value })
-                                    }
-                                    options={tipoEmpleado}
-
-                                />
-                            </div>
-                        </div>
                         <div className="grid-2">
                             <div className="title grid-span-2">
-                                <h4>Informacion del Personal</h4>
+                                <h4>Informacion del estudiante</h4>
                             </div>
-                            <Input
-                                type="text"
-                                icono={<FaUser />}
-                                placeholder="Nombres"
-                                name="nombres"
-                                value={formData.nombres}
-                                valueChange={(e) =>
-                                    setFormData({ ...formData, nombres: e.target.value })
-                                }
-                            />
                             <Input
                                 type="text"
                                 icono={<FaUser />}
                                 placeholder="Apellidos"
                                 name="apellidos"
-                                value={formData.apellidos}
+                                value={estudianteData.apellidos}
                                 valueChange={(e) =>
-                                    setFormData({ ...formData, apellidos: e.target.value })
+                                    setEstudianteData({
+                                        ...estudianteData,
+                                        apellidos: e.target.value,
+                                    })
                                 }
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaUser />}
+                                placeholder="Nombres"
+                                name="nombres"
+                                value={estudianteData.nombres}
+                                valueChange={(e) =>
+                                    setEstudianteData({
+                                        ...estudianteData,
+                                        nombres: e.target.value,
+                                    })
+                                }
+                            />
+                            <SelectInput
+                                icono={<FaUser />}
+                                placeholder="Sexo:"
+                                content={true}
+                                name="sexo"
+                                value={estudianteData.sex}
+                                valueChange={(e: any) =>
+                                    setEstudianteData({ ...estudianteData, sex: e.value })
+                                }
+                                options={sex}
+                            />
+                            <SelectInput
+                                icono={<FaIdCard />}
+                                placeholder="Nacionalidad:"
+                                content={true}
+                                name="nacionalidad"
+                                value={estudianteData.nacionalidad}
+                                valueChange={(e: any) =>
+                                    setEstudianteData({
+                                        ...estudianteData,
+                                        nacionalidad: e.value,
+                                    })
+                                }
+                                options={nacionalidad}
                             />
                             <Input
                                 type="number"
                                 icono={<FaIdCard />}
                                 placeholder="Cédula de Identidad"
                                 name="ci"
-                                value={formData.ci}
+                                value={estudianteData.ci}
                                 valueChange={(e) =>
-                                    setFormData({ ...formData, ci: e.target.value })
+                                    setEstudianteData({
+                                        ...estudianteData,
+                                        ci: e.target.value,
+                                    })
                                 }
                             />
                             <Input
                                 type="date"
                                 placeholder="Fecha de Nacimiento"
-                                icono={<MdDateRange />}
+                                icono={<FaBirthdayCake />}
                                 name="fecha_nac"
                                 hasContentState={true}
-                                value={formData.fecha_nac}
+                                value={estudianteData.fecha_nacimiento}
                                 valueChange={(e) =>
-                                    setFormData({ ...formData, fecha_nac: e.target.value })
+                                    setEstudianteData({
+                                        ...estudianteData,
+                                        fecha_nacimiento: e.target.value,
+                                    })
                                 }
                             />
-
+                            <Input
+                                type="text"
+                                icono={<FaMapMarkerAlt />}
+                                placeholder="Lugar de Nacimiento"
+                                name="lugar_nacimiento"
+                                value={estudianteData.lugar_nacimiento}
+                                valueChange={(e) =>
+                                    setEstudianteData({
+                                        ...estudianteData,
+                                        lugar_nacimiento: e.target.value,
+                                    })
+                                }
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaMapMarkerAlt />}
+                                placeholder="Entidad Federativa"
+                                name="entd_federativa"
+                                value={estudianteData.entd_federativa}
+                                valueChange={(e) =>
+                                    setEstudianteData({
+                                        ...estudianteData,
+                                        entd_federativa: e.target.value,
+                                    })
+                                }
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaSchool />}
+                                placeholder="Plantel de Procedencia"
+                                name="plantel_de_procedencia"
+                                value={estudianteData.plantel_de_procedencia}
+                                valueChange={(e) =>
+                                    setEstudianteData({
+                                        ...estudianteData,
+                                        plantel_de_procedencia: e.target.value,
+                                    })
+                                }
+                            />
                             <Input
                                 type="number"
-                                icono={<FaPhoneFlip />}
-                                placeholder="Teléfono"
-                                name="telefono"
-                                value={formData.telefono}
+                                icono={<FaRulerVertical />}
+                                placeholder="Talla"
+                                name="talla"
+                                value={estudianteData.talla}
                                 valueChange={(e) =>
-                                    setFormData({ ...formData, telefono: e.target.value })
-                                }
-                            />
-
-                            <Input
-                                type="email"
-                                icono={<BsEnvelopeFill />}
-                                placeholder="Correo Electrónico"
-                                name="correo_electronico"
-                                value={formData.correo_electronico}
-                                valueChange={(e) =>
-                                    setFormData({ ...formData, correo_electronico: e.target.value })
-                                }
-                            />
-
-                            <Input
-                                type="text"
-                                icono={<BiSolidDirections />}
-                                placeholder="Dirección de Habitación"
-                                name="direccion_de_habitacion"
-                                value={formData.direccion_de_habitacion}
-                                valueChange={(e) =>
-                                    setFormData({
-                                        ...formData,
-                                        direccion_de_habitacion: e.target.value,
+                                    setEstudianteData({
+                                        ...estudianteData,
+                                        talla: e.target.value,
                                     })
                                 }
-                                className="grid-span-2"
+                            />
+                            <Input
+                                type="number"
+                                icono={<FaWeight />}
+                                placeholder="Peso"
+                                name="peso"
+                                value={estudianteData.peso}
+                                valueChange={(e) =>
+                                    setEstudianteData({
+                                        ...estudianteData,
+                                        peso: e.target.value,
+                                    })
+                                }
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaRulerCombined />}
+                                placeholder="Medidas"
+                                name="medidas"
+                                value={estudianteData.medidas}
+                                valueChange={(e) =>
+                                    setEstudianteData({
+                                        ...estudianteData,
+                                        medidas: e.target.value,
+                                    })
+                                }
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaChild />}
+                                placeholder="Edad"
+                                name="edad"
+                                value={estudianteData.edad}
+                                valueChange={(e) =>
+                                    setEstudianteData({
+                                        ...estudianteData,
+                                        edad: e.target.value,
+                                    })
+                                }
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaHandPaper />}
+                                placeholder="Lateralidad"
+                                name="lateralidad"
+                                value={estudianteData.lateralidad}
+                                valueChange={(e) =>
+                                    setEstudianteData({
+                                        ...estudianteData,
+                                        lateralidad: e.target.value,
+                                    })
+                                }
+                            />
+                            <Input
+                                type="number"
+                                icono={<FaTshirt />}
+                                placeholder="Talla de Camisa"
+                                name="talla_camisa"
+                                value={estudianteData.talla_camisa}
+                                valueChange={(e) =>
+                                    setEstudianteData({
+                                        ...estudianteData,
+                                        talla_camisa: e.target.value,
+                                    })
+                                }
+                            />
+                            <Input
+                                type="number"
+                                icono={<FaSchool />}
+                                placeholder="Talla de Pantalón"
+                                name="talla_pantalon"
+                                value={estudianteData.talla_pantalon}
+                                valueChange={(e) =>
+                                    setEstudianteData({
+                                        ...estudianteData,
+                                        talla_pantalon: e.target.value,
+                                    })
+                                }
+                            />
+                            <Input
+                                type="number"
+                                icono={<FaShoePrints />}
+                                placeholder="Talla de Zapato"
+                                name="talla_zapato"
+                                value={estudianteData.talla_zapato}
+                                valueChange={(e) =>
+                                    setEstudianteData({
+                                        ...estudianteData,
+                                        talla_zapato: e.target.value,
+                                    })
+                                }
                             />
                         </div>
 
                         <div className="grid-2">
                             <div className="title grid-span-2">
-                                <h4>Informacion del Empleo</h4>
+                                <h4>Informacion de habitacion</h4>
                             </div>
-
                             <Input
-                                required={false}
+                                className="grid-2-columns"
                                 type="text"
-                                icono={<FaUserGraduate />}
-                                placeholder="Título Obtenido"
-                                name="titulo_obtenido"
-                                value={formData.titulo_obtenido}
+                                icono={<FaRoad />}
+                                placeholder="Vía de acceso al lugar donde vive"
+                                name="via_de_acceso_al_lugar_donde_vive"
+                                value={viaDeAccesoData.via_de_acceso_al_lugar_donde_vive}
                                 valueChange={(e) =>
-                                    setFormData({ ...formData, titulo_obtenido: e.target.value })
+                                    setViaDeAccesoData({
+                                        ...viaDeAccesoData,
+                                        via_de_acceso_al_lugar_donde_vive: e.target.value,
+                                    })
                                 }
                             />
-
                             <Input
-                                required={false}
-                                type="text"
-                                icono={<FaUserGraduate />}
-                                placeholder="Título de Pregrado"
-                                name="titulo_pregrado"
-                                value={formData.titulo_pregrado}
-                                valueChange={(e) =>
-                                    setFormData({ ...formData, titulo_pregrado: e.target.value })
-                                }
-                            />
-
-                            <Input
-                                required={false}
                                 type="text"
                                 icono={<FaUserTie />}
-                                placeholder="Área Docente Especialista"
-                                name="area_docente_especialista"
-                                value={formData.area_docente_especialista}
+                                placeholder="Representante Legal"
+                                name="reprecentante_legal"
+                                value={viaDeAccesoData.reprecentante_legal}
                                 valueChange={(e) =>
-                                    setFormData({
-                                        ...formData,
-                                        area_docente_especialista: e.target.value,
-                                    })
-                                }
-                            />
-
-                            <Input
-                                required={false}
-                                type="date"
-                                hasContentState={true}
-                                icono={<MdDateRange />}
-                                placeholder="Fecha de Ingreso al MPPE"
-                                name="fecha_ingreso_mppe"
-                                value={formData.fecha_ingreso_mppe}
-                                valueChange={(e) =>
-                                    setFormData({ ...formData, fecha_ingreso_mppe: e.target.value })
-                                }
-                            />
-
-                            <Input
-                                required={false}
-                                type="text"
-                                icono={<MdHomeRepairService />}
-                                placeholder="Años de Servicio"
-                                name="anos_servicio"
-                                value={formData.anos_servicio}
-                                valueChange={(e) =>
-                                    setFormData({ ...formData, anos_servicio: e.target.value })
-                                }
-                            />
-
-                            <Input
-                                required={false}
-                                type="text"
-                                icono={<MdOutlineWorkspacePremium />}
-                                placeholder="Código de Cargo"
-                                name="codigo_cargo"
-                                value={formData.codigo_cargo}
-                                valueChange={(e) =>
-                                    setFormData({ ...formData, codigo_cargo: e.target.value })
-                                }
-                            />
-                            <Input
-                                required={false}
-                                type="text"
-                                icono={<GoWorkflow />}
-                                placeholder="Dependencia Nominal"
-                                name="dependencia_nominal"
-                                value={formData.dependencia_nominal}
-                                valueChange={(e) =>
-                                    setFormData({
-                                        ...formData,
-                                        dependencia_nominal: e.target.value,
+                                    setViaDeAccesoData({
+                                        ...viaDeAccesoData,
+                                        reprecentante_legal: e.target.value,
                                     })
                                 }
                             />
                             <Input
-                                required={false}
                                 type="text"
-                                icono={<PiIntersectSquareBold />}
-                                placeholder="grado seccion"
-                                name="grado_seccion"
-                                value={formData.grado_seccion}
+                                icono={<FaHome />}
+                                placeholder="Con quién vive"
+                                name="con_quien_vive"
+                                value={viaDeAccesoData.con_quien_vive}
                                 valueChange={(e) =>
-                                    setFormData({
-                                        ...formData,
-                                        grado_seccion: e.target.value,
+                                    setViaDeAccesoData({
+                                        ...viaDeAccesoData,
+                                        con_quien_vive: e.target.value,
                                     })
                                 }
                             />
-
                             <Input
-                                required={false}
                                 type="text"
-                                icono={<SiAzurefunctions />}
-                                placeholder="funcion trabajo"
-                                name="funcion_trabajo"
-                                value={formData.funcion_trabajo}
+                                icono={<FaWheelchair />}
+                                placeholder="Condición Especial"
+                                name="condicion_especial"
+                                value={viaDeAccesoData.condicion_especial}
                                 valueChange={(e) =>
-                                    setFormData({
-                                        ...formData,
-                                        funcion_trabajo: e.target.value,
+                                    setViaDeAccesoData({
+                                        ...viaDeAccesoData,
+                                        condicion_especial: e.target.value,
                                     })
                                 }
                             />
-
                             <Input
-                                required={false}
                                 type="text"
-                                icono={<RiFunctionAddLine />}
-                                placeholder="acarigua"
-                                name="acarigua"
-                                value={formData.acarigua}
+                                icono={<FaNotesMedical />}
+                                placeholder="Observación de Condición"
+                                name="observacion_de_condicion"
+                                value={viaDeAccesoData.observacion_de_condicion}
                                 valueChange={(e) =>
-                                    setFormData({
-                                        ...formData,
-                                        acarigua: e.target.value,
+                                    setViaDeAccesoData({
+                                        ...viaDeAccesoData,
+                                        observacion_de_condicion: e.target.value,
                                     })
                                 }
                             />
-
-                            <SelectInput
-                                icono={<FaArtstation />}
-                                placeholder="Estatus:"
-                                content={true}
-                                name="estatus"
-                                value={formData.estatus}
-                                valueChange={(e: any) =>
-                                    setFormData({ ...formData, estatus: e.value })
-                                }
-                                options={estatusData}
-                            />
-
                             <Input
-                                required={false}
                                 type="text"
-                                icono={<FaUserInjured />}
-                                placeholder="Reposo o Permiso"
-                                name="reposo_permiso"
-                                value={formData.reposo_permiso}
+                                icono={<FaPills />}
+                                placeholder="El estudiante consume medicamento"
+                                name="el_estudiante_consume_medicamento"
+                                value={viaDeAccesoData.el_estudiante_consume_medicamento}
                                 valueChange={(e) =>
-                                    setFormData({ ...formData, reposo_permiso: e.target.value })
+                                    setViaDeAccesoData({
+                                        ...viaDeAccesoData,
+                                        el_estudiante_consume_medicamento: e.target.value,
+                                    })
+                                }
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaNotesMedical />}
+                                placeholder="Observación de Medicamento"
+                                name="observacion_de_medicamento"
+                                value={viaDeAccesoData.observacion_de_medicamento}
+                                valueChange={(e) =>
+                                    setViaDeAccesoData({
+                                        ...viaDeAccesoData,
+                                        observacion_de_medicamento: e.target.value,
+                                    })
                                 }
                             />
                         </div>
 
                         <div className="grid-2">
                             <div className="title grid-span-2">
-                                <h4>Informacion del Politica</h4>
+                                <h4>Informacion de la madre</h4>
                             </div>
-
-                            <SelectInput
-                                icono={<FaUsers />}
-                                placeholder="Inscrito en el PSUV"
-                                content={true}
-                                name="inscrito_psuv"
-                                value={formDataPolitica.inscrito_psuv}
-                                valueChange={(e: any) =>
-                                    setFormDataPolitica({
-                                        ...formDataPolitica,
-                                        inscrito_psuv: e.value,
-                                    })
-                                }
-                                options={politicaData}
-                            />
                             <Input
                                 type="text"
-                                icono={<ImMoveUp />}
-                                placeholder="Pertenece a Movimiento Social"
-                                name="pertenece_movimiento_social"
-                                value={formDataPolitica.pertenece_movimiento_social}
+                                icono={<FaUser />}
+                                placeholder="Apellidos"
+                                name="apellidos"
+                                value={datosMadre.apellidos}
                                 valueChange={(e) =>
-                                    setFormDataPolitica({
-                                        ...formDataPolitica,
-                                        pertenece_movimiento_social: e.target.value,
+                                    setDatosMadre({
+                                        ...datosMadre,
+                                        apellidos: e.target.value,
                                     })
                                 }
-                            />
-                            <Input
-                                type="text"
-                                icono={<FaIdCard />}
-                                placeholder="Código del Carnet de la Patria"
-                                name="carnet_patria_codigo"
-                                value={formDataPolitica.carnet_patria_codigo}
-                                valueChange={(e) =>
-                                    setFormDataPolitica({
-                                        ...formDataPolitica,
-                                        carnet_patria_codigo: e.target.value,
-                                    })
-                                }
-                            />
-                            <Input
-                                type="text"
-                                icono={<FaIdCard />}
-                                placeholder="Serial del Carnet de la Patria"
-                                name="carnet_patria_serial"
-                                value={formDataPolitica.carnet_patria_serial}
-                                valueChange={(e) =>
-                                    setFormDataPolitica({
-                                        ...formDataPolitica,
-                                        carnet_patria_serial: e.target.value,
-                                    })
-                                }
-                            />
-
-                            <SelectInput
-                                icono={<FaSlidersH />}
-                                placeholder="Tipo de Voto"
-                                content={true}
-                                name="tipo_voto"
-                                value={formDataPolitica.tipo_voto}
-                                valueChange={(e: any) =>
-                                    setFormDataPolitica({ ...formDataPolitica, tipo_voto: e.value })
-                                }
-                                options={tipoVoto}
-                            />
-
-                            <Input
                                 required={false}
+                            />
+                            <Input
                                 type="text"
-                                icono={<BiSolidInstitution />}
-                                placeholder="Centro de Votación"
-                                name="centro_votacion"
-                                value={formDataPolitica.centro_votacion}
+                                icono={<FaUser />}
+                                placeholder="Nombres"
+                                name="nombres"
+                                value={datosMadre.nombres}
                                 valueChange={(e) =>
-                                    setFormDataPolitica({
-                                        ...formDataPolitica,
-                                        centro_votacion: e.target.value,
+                                    setDatosMadre({
+                                        ...datosMadre,
+                                        nombres: e.target.value,
                                     })
                                 }
+                                required={false}
+                            />
+                            <SelectInput
+                                icono={<FaIdCard />}
+                                placeholder="Nacionalidad:"
+                                content={true}
+                                name="nacionalidad"
+                                value={datosMadre.nacionalidad}
+                                valueChange={(e: any) =>
+                                    setDatosMadre({
+                                        ...datosMadre,
+                                        nacionalidad: e.value,
+                                    })
+                                }
+                                options={nacionalidad}
+                            />
+                            <Input
+                                type="number"
+                                icono={<FaIdCard />}
+                                placeholder="Cédula"
+                                name="cedula"
+                                value={datosMadre.cedula}
+                                valueChange={(e) =>
+                                    setDatosMadre({
+                                        ...datosMadre,
+                                        cedula: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaMapMarkerAlt />}
+                                placeholder="Urbanización/Barrio"
+                                name="urb_br"
+                                value={datosMadre.urb_br}
+                                valueChange={(e) =>
+                                    setDatosMadre({
+                                        ...datosMadre,
+                                        urb_br: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaMapMarkerAlt />}
+                                placeholder="Dirección de Habitación (Avenida)"
+                                name="direccion_habitacion_av"
+                                value={datosMadre.direccion_habitacion_av}
+                                valueChange={(e) =>
+                                    setDatosMadre({
+                                        ...datosMadre,
+                                        direccion_habitacion_av: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaMapMarkerAlt />}
+                                placeholder="Calle"
+                                name="calle"
+                                value={datosMadre.calle}
+                                valueChange={(e) =>
+                                    setDatosMadre({
+                                        ...datosMadre,
+                                        calle: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaMapMarkerAlt />}
+                                placeholder="Casa/Apartamento"
+                                name="casa_apartamento"
+                                value={datosMadre.casa_apartamento}
+                                valueChange={(e) =>
+                                    setDatosMadre({
+                                        ...datosMadre,
+                                        casa_apartamento: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaMapMarkerAlt />}
+                                placeholder="Número de Habitación"
+                                name="numero_habitacion"
+                                value={datosMadre.numero_habitacion}
+                                valueChange={(e) =>
+                                    setDatosMadre({
+                                        ...datosMadre,
+                                        numero_habitacion: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaMapMarkerAlt />}
+                                placeholder="Referencia"
+                                name="referencia"
+                                value={datosMadre.referencia}
+                                valueChange={(e) =>
+                                    setDatosMadre({
+                                        ...datosMadre,
+                                        referencia: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaMapMarkerAlt />}
+                                placeholder="Ciudad"
+                                name="ciudad"
+                                value={datosMadre.ciudad}
+                                valueChange={(e) =>
+                                    setDatosMadre({
+                                        ...datosMadre,
+                                        ciudad: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaMapMarkerAlt />}
+                                placeholder="Parroquia"
+                                name="parroquia"
+                                value={datosMadre.parroquia}
+                                valueChange={(e) =>
+                                    setDatosMadre({
+                                        ...datosMadre,
+                                        parroquia: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaMapMarkerAlt />}
+                                placeholder="Estado"
+                                name="estado"
+                                value={datosMadre.estado}
+                                valueChange={(e) =>
+                                    setDatosMadre({
+                                        ...datosMadre,
+                                        estado: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaPhone />}
+                                placeholder="Teléfono de Casa"
+                                name="movil_casa"
+                                value={datosMadre.movil_casa}
+                                valueChange={(e) =>
+                                    setDatosMadre({
+                                        ...datosMadre,
+                                        movil_casa: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="number"
+                                icono={<FaPhone />}
+                                placeholder="Teléfono Personal"
+                                name="telefono_personal"
+                                value={datosMadre.telefono_personal}
+                                valueChange={(e) =>
+                                    setDatosMadre({
+                                        ...datosMadre,
+                                        telefono_personal: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="number"
+                                icono={<FaPhone />}
+                                placeholder="Teléfono de Trabajo"
+                                name="telefono_trabajo"
+                                value={datosMadre.telefono_trabajo}
+                                valueChange={(e) =>
+                                    setDatosMadre({
+                                        ...datosMadre,
+                                        telefono_trabajo: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="email"
+                                icono={<FaEnvelope />}
+                                placeholder="Email"
+                                name="email"
+                                value={datosMadre.email}
+                                valueChange={(e) =>
+                                    setDatosMadre({
+                                        ...datosMadre,
+                                        email: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaGraduationCap />}
+                                placeholder="Nivel Académico"
+                                name="nivelAcademico"
+                                value={datosMadre.nivelAcademico}
+                                valueChange={(e) =>
+                                    setDatosMadre({
+                                        ...datosMadre,
+                                        nivelAcademico: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaBriefcase />}
+                                placeholder="Profesión"
+                                name="profesion"
+                                value={datosMadre.profesion}
+                                valueChange={(e) =>
+                                    setDatosMadre({
+                                        ...datosMadre,
+                                        profesion: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaBuilding />}
+                                placeholder="Lugar de Trabajo"
+                                name="lugarTrabajo"
+                                value={datosMadre.lugarTrabajo}
+                                valueChange={(e) =>
+                                    setDatosMadre({
+                                        ...datosMadre,
+                                        lugarTrabajo: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaUser />}
+                                placeholder="Cargo"
+                                name="cargo"
+                                value={datosMadre.cargo}
+                                valueChange={(e) =>
+                                    setDatosMadre({
+                                        ...datosMadre,
+                                        cargo: e.target.value,
+                                    })
+                                }
+                                required={false}
                             />
                         </div>
 
+                        <div className="grid-2">
+                            <div className="title grid-span-2">
+                                <h4>Informacion del Padre</h4>
+                            </div>
+                            <Input
+                                type="text"
+                                icono={<FaUser />}
+                                placeholder="Apellidos"
+                                name="apellidos"
+                                value={datosPadre.apellidos}
+                                valueChange={(e) =>
+                                    setDatosPadre({
+                                        ...datosPadre,
+                                        apellidos: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaUser />}
+                                placeholder="Nombres"
+                                name="nombres"
+                                value={datosPadre.nombres}
+                                valueChange={(e) =>
+                                    setDatosPadre({
+                                        ...datosPadre,
+                                        nombres: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <SelectInput
+                                icono={<FaIdCard />}
+                                placeholder="Nacionalidad"
+                                content={true}
+                                name="nacionalidad"
+                                value={datosPadre.nacionalidad}
+                                valueChange={(e: any) =>
+                                    setDatosPadre({
+                                        ...datosPadre,
+                                        nacionalidad: e.value,
+                                    })
+                                }
+                                options={nacionalidad}
+                            />
+                            <Input
+                                type="number"
+                                icono={<FaIdCard />}
+                                placeholder="Cédula"
+                                name="cedula"
+                                value={datosPadre.cedula}
+                                valueChange={(e) =>
+                                    setDatosPadre({
+                                        ...datosPadre,
+                                        cedula: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaMapMarkerAlt />}
+                                placeholder="Urbanización/Barrio"
+                                name="urb_br"
+                                value={datosPadre.urb_br}
+                                valueChange={(e) =>
+                                    setDatosPadre({
+                                        ...datosPadre,
+                                        urb_br: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaMapMarkerAlt />}
+                                placeholder="Dirección de Habitación (Avenida)"
+                                name="direccion_habitacion_av"
+                                value={datosPadre.direccion_habitacion_av}
+                                valueChange={(e) =>
+                                    setDatosPadre({
+                                        ...datosPadre,
+                                        direccion_habitacion_av: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaMapMarkerAlt />}
+                                placeholder="Calle"
+                                name="calle"
+                                value={datosPadre.calle}
+                                valueChange={(e) =>
+                                    setDatosPadre({
+                                        ...datosPadre,
+                                        calle: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaMapMarkerAlt />}
+                                placeholder="Casa/Apartamento"
+                                name="casa_apartamento"
+                                value={datosPadre.casa_apartamento}
+                                valueChange={(e) =>
+                                    setDatosPadre({
+                                        ...datosPadre,
+                                        casa_apartamento: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaMapMarkerAlt />}
+                                placeholder="Número de Habitación"
+                                name="numero_habitacion"
+                                value={datosPadre.numero_habitacion}
+                                valueChange={(e) =>
+                                    setDatosPadre({
+                                        ...datosPadre,
+                                        numero_habitacion: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaMapMarkerAlt />}
+                                placeholder="Referencia"
+                                name="referencia"
+                                value={datosPadre.referencia}
+                                valueChange={(e) =>
+                                    setDatosPadre({
+                                        ...datosPadre,
+                                        referencia: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaMapMarkerAlt />}
+                                placeholder="Ciudad"
+                                name="ciudad"
+                                value={datosPadre.ciudad}
+                                valueChange={(e) =>
+                                    setDatosPadre({
+                                        ...datosPadre,
+                                        ciudad: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaMapMarkerAlt />}
+                                placeholder="Parroquia"
+                                name="parroquia"
+                                value={datosPadre.parroquia}
+                                valueChange={(e) =>
+                                    setDatosPadre({
+                                        ...datosPadre,
+                                        parroquia: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaMapMarkerAlt />}
+                                placeholder="Estado"
+                                name="estado"
+                                value={datosPadre.estado}
+                                valueChange={(e) =>
+                                    setDatosPadre({
+                                        ...datosPadre,
+                                        estado: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaPhone />}
+                                placeholder="Teléfono de Casa"
+                                name="movil_casa"
+                                value={datosPadre.movil_casa}
+                                valueChange={(e) =>
+                                    setDatosPadre({
+                                        ...datosPadre,
+                                        movil_casa: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="number"
+                                icono={<FaPhone />}
+                                placeholder="Teléfono Personal"
+                                name="telefono_personal"
+                                value={datosPadre.telefono_personal}
+                                valueChange={(e) =>
+                                    setDatosPadre({
+                                        ...datosPadre,
+                                        telefono_personal: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="number"
+                                icono={<FaPhone />}
+                                placeholder="Teléfono de Trabajo"
+                                name="telefono_trabajo"
+                                value={datosPadre.telefono_trabajo}
+                                valueChange={(e) =>
+                                    setDatosPadre({
+                                        ...datosPadre,
+                                        telefono_trabajo: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="email"
+                                icono={<FaEnvelope />}
+                                placeholder="Email"
+                                name="email"
+                                value={datosPadre.email}
+                                valueChange={(e) =>
+                                    setDatosPadre({
+                                        ...datosPadre,
+                                        email: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaGraduationCap />}
+                                placeholder="Nivel Académico"
+                                name="nivelAcademico"
+                                value={datosPadre.nivelAcademico}
+                                valueChange={(e) =>
+                                    setDatosPadre({
+                                        ...datosPadre,
+                                        nivelAcademico: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaBriefcase />}
+                                placeholder="Profesión"
+                                name="profesion"
+                                value={datosPadre.profesion}
+                                valueChange={(e) =>
+                                    setDatosPadre({
+                                        ...datosPadre,
+                                        profesion: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaBuilding />}
+                                placeholder="Lugar de Trabajo"
+                                name="lugarTrabajo"
+                                value={datosPadre.lugarTrabajo}
+                                valueChange={(e) =>
+                                    setDatosPadre({
+                                        ...datosPadre,
+                                        lugarTrabajo: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaUser />}
+                                placeholder="Cargo"
+                                name="cargo"
+                                value={datosPadre.cargo}
+                                valueChange={(e) =>
+                                    setDatosPadre({
+                                        ...datosPadre,
+                                        cargo: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                        </div>
 
+                        <div className="grid-2">
+                            <div className="title grid-span-2">
+                                <h4>Informacion del Representante legal</h4>
+                            </div>
+                            <Input
+                                type="text"
+                                icono={<FaUser />}
+                                placeholder="Parentesco"
+                                name="parentesco"
+                                value={datosRepresentante.parentesco}
+                                valueChange={(e) =>
+                                    setDatosRepresentante({
+                                        ...datosRepresentante,
+                                        parentesco: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaUser />}
+                                placeholder="Apellidos"
+                                name="apellidos"
+                                value={datosRepresentante.apellidos}
+                                valueChange={(e) =>
+                                    setDatosRepresentante({
+                                        ...datosRepresentante,
+                                        apellidos: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaUser />}
+                                placeholder="Nombres"
+                                name="nombres"
+                                value={datosRepresentante.nombres}
+                                valueChange={(e) =>
+                                    setDatosRepresentante({
+                                        ...datosRepresentante,
+                                        nombres: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <SelectInput
+                                icono={<FaIdCard />}
+                                placeholder="Nacionalidad"
+                                content={true}
+                                name="nacionalidad"
+                                value={datosRepresentante.nacionalidad}
+                                valueChange={(e: any) =>
+                                    setDatosRepresentante({
+                                        ...datosRepresentante,
+                                        nacionalidad: e.value,
+                                    })
+                                }
+                                options={nacionalidad}
+                            />
+                            <Input
+                                type="number"
+                                icono={<FaIdCard />}
+                                placeholder="Cédula"
+                                name="cedula"
+                                value={datosRepresentante.cedula}
+                                valueChange={(e) =>
+                                    setDatosRepresentante({
+                                        ...datosRepresentante,
+                                        cedula: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaMapMarkerAlt />}
+                                placeholder="Urbanización/Barrio"
+                                name="urb_br"
+                                value={datosRepresentante.urb_br}
+                                valueChange={(e) =>
+                                    setDatosRepresentante({
+                                        ...datosRepresentante,
+                                        urb_br: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="date"
+                                icono={<FaBirthdayCake />}
+                                placeholder="Fecha de Nacimiento"
+                                name="fecha_nacimiento"
+                                value={datosRepresentante.fecha_nacimiento}
+                                valueChange={(e) =>
+                                    setDatosRepresentante({
+                                        ...datosRepresentante,
+                                        fecha_nacimiento: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaMapMarkerAlt />}
+                                placeholder="Dirección de Habitación (Avenida)"
+                                name="direccion_habitacion_av"
+                                value={datosRepresentante.direccion_habitacion_av}
+                                valueChange={(e) =>
+                                    setDatosRepresentante({
+                                        ...datosRepresentante,
+                                        direccion_habitacion_av: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaMapMarkerAlt />}
+                                placeholder="Calle"
+                                name="calle"
+                                value={datosRepresentante.calle}
+                                valueChange={(e) =>
+                                    setDatosRepresentante({
+                                        ...datosRepresentante,
+                                        calle: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaMapMarkerAlt />}
+                                placeholder="Casa/Apartamento"
+                                name="casa_apartamento"
+                                value={datosRepresentante.casa_apartamento}
+                                valueChange={(e) =>
+                                    setDatosRepresentante({
+                                        ...datosRepresentante,
+                                        casa_apartamento: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaMapMarkerAlt />}
+                                placeholder="Número de Habitación"
+                                name="numero_habitacion"
+                                value={datosRepresentante.numero_habitacion}
+                                valueChange={(e) =>
+                                    setDatosRepresentante({
+                                        ...datosRepresentante,
+                                        numero_habitacion: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaMapMarkerAlt />}
+                                placeholder="Referencia"
+                                name="referencia"
+                                value={datosRepresentante.referencia}
+                                valueChange={(e) =>
+                                    setDatosRepresentante({
+                                        ...datosRepresentante,
+                                        referencia: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaMapMarkerAlt />}
+                                placeholder="Ciudad"
+                                name="ciudad"
+                                value={datosRepresentante.ciudad}
+                                valueChange={(e) =>
+                                    setDatosRepresentante({
+                                        ...datosRepresentante,
+                                        ciudad: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaMapMarkerAlt />}
+                                placeholder="Parroquia"
+                                name="parroquia"
+                                value={datosRepresentante.parroquia}
+                                valueChange={(e) =>
+                                    setDatosRepresentante({
+                                        ...datosRepresentante,
+                                        parroquia: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaMapMarkerAlt />}
+                                placeholder="Estado"
+                                name="estado"
+                                value={datosRepresentante.estado}
+                                valueChange={(e) =>
+                                    setDatosRepresentante({
+                                        ...datosRepresentante,
+                                        estado: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaPhone />}
+                                placeholder="Teléfono de Habitación"
+                                name="telefono_habitacion"
+                                value={datosRepresentante.telefono_habitacion}
+                                valueChange={(e) =>
+                                    setDatosRepresentante({
+                                        ...datosRepresentante,
+                                        telefono_habitacion: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="number"
+                                icono={<FaPhone />}
+                                placeholder="Teléfono Personal"
+                                name="telefono_personal"
+                                value={datosRepresentante.telefono_personal}
+                                valueChange={(e) =>
+                                    setDatosRepresentante({
+                                        ...datosRepresentante,
+                                        telefono_personal: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="email"
+                                icono={<FaEnvelope />}
+                                placeholder="Email"
+                                name="email"
+                                value={datosRepresentante.email}
+                                valueChange={(e) =>
+                                    setDatosRepresentante({
+                                        ...datosRepresentante,
+                                        email: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaBriefcase />}
+                                placeholder="Profesión"
+                                name="profesion"
+                                value={datosRepresentante.profesion}
+                                valueChange={(e) =>
+                                    setDatosRepresentante({
+                                        ...datosRepresentante,
+                                        profesion: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaBuilding />}
+                                placeholder="Lugar de Trabajo"
+                                name="lugarTrabajo"
+                                value={datosRepresentante.lugarTrabajo}
+                                valueChange={(e) =>
+                                    setDatosRepresentante({
+                                        ...datosRepresentante,
+                                        lugarTrabajo: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="number"
+                                icono={<FaPhone />}
+                                placeholder="Teléfono de Trabajo"
+                                name="telefono_trabajo"
+                                value={datosRepresentante.telefono_trabajo}
+                                valueChange={(e) =>
+                                    setDatosRepresentante({
+                                        ...datosRepresentante,
+                                        telefono_trabajo: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                type="text"
+                                icono={<FaUser />}
+                                placeholder="Cargo"
+                                name="cargo"
+                                value={datosRepresentante.cargo}
+                                valueChange={(e) =>
+                                    setDatosRepresentante({
+                                        ...datosRepresentante,
+                                        cargo: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                        </div>
+
+                        <div className="grid-2">
+                            <div className="title grid-span-2">
+                                <h4>Periodo</h4>
+                            </div>
+                            <Input
+                                hasContentState={true}
+                                type="date"
+                                icono={<FaCalendarAlt />}
+                                placeholder="Inicio del Periodo Escolar"
+                                name="inicio_periodo_escolar"
+                                value={periodoEscolar.inicio_periodo_escolar}
+                                valueChange={(e) =>
+                                    setPeriodoEscolar({
+                                        ...periodoEscolar,
+                                        inicio_periodo_escolar: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                            <Input
+                                hasContentState={true}
+                                type="date"
+                                icono={<FaCalendarAlt />}
+                                placeholder="Fin del Periodo Escolar"
+                                name="fin_periodo_escolar"
+                                value={periodoEscolar.fin_periodo_escolar}
+                                valueChange={(e) =>
+                                    setPeriodoEscolar({
+                                        ...periodoEscolar,
+                                        fin_periodo_escolar: e.target.value,
+                                    })
+                                }
+                                required={false}
+                            />
+                        </div>
 
                         <div className="container-footer">
-                            <div className="title grid-span-2">
-                                <h4>Observaciones</h4>
-                            </div>
-
-                            <Input
-                                required={false}
-                                className="input-observaciones"
-                                type="text"
-                                placeholder=""
-                                name="observaciones"
-                                value={formData.observaciones}
-                                valueChange={(e) =>
-                                    setFormData({ ...formData, observaciones: e.target.value })
-                                }
-                            />
-
+                            <BtnSubmitBasic text="Agregar" />
                         </div>
-                        <BtnSubmitBasic text="Agregar Empleado" loading={false} />
                     </form>
                 </div>
 

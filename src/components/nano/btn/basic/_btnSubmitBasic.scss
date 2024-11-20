@@ -3,6 +3,7 @@
   height: 42px;
   position: relative;
   width: 100%;
+  @include width(222px);
 
   &,
   * {
