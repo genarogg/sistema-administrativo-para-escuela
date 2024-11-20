@@ -144,6 +144,7 @@ $azul: $color-secondary;
     top: 23px;
     transform: translateY(-50%);
     transition: 0.3s;
+    text-shadow: 0 0 20px #045e55;
 
     &.has-content {
       font-size: 14px;

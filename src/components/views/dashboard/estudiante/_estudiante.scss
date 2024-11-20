@@ -1,0 +1,22 @@
+.estudiante {
+    .container-input {
+        @include width(200px);
+        height: 30px;
+
+
+        .select {
+            @include width(200px);
+            height: 30px;
+
+            .css-b62m3t-container {
+                @include width(200px);
+                height: 30px;
+                background-color: transparent;
+            }
+        }
+    }
+
+    
+
+
+}

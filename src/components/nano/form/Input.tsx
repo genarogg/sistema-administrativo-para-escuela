@@ -50,9 +50,8 @@ const Input: React.FC<InputProps> = ({
 
   return (
     <div
-      className={`container-input ${className} ${isFocused ? "focus" : ""} ${
-        icono ? "" : "no-icon"
-      }`}
+      className={`container-input ${className} ${isFocused ? "focus" : ""} ${icono ? "" : "no-icon"
+        }`}
     >
       {icono && (
         <label htmlFor={id}>
@@ -93,7 +92,7 @@ const Input: React.FC<InputProps> = ({
         </button>
       )}
       <span className={`holder ${hasContent ? "has-content" : ""}`}>
-        {placeholder}
+        {placeholder} {required ? "*" : ""}
       </span>
     </div>
   );

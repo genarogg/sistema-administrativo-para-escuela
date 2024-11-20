@@ -7,7 +7,7 @@ import { SelectInput } from "@form";
 import { A } from "@nano";
 
 
-interface InicioProps { }
+interface PersonalProps { }
 
 const empleadoTypes = [
     { value: "cocinero", label: "Cocinero" },
@@ -17,7 +17,7 @@ const empleadoTypes = [
 ];
 
 
-const Inicio: React.FC<InicioProps> = () => {
+const Personal: React.FC<PersonalProps> = () => {
     const [quickFilterText, setQuickFilterText] = useState("");
 
 
@@ -39,7 +39,11 @@ const Inicio: React.FC<InicioProps> = () => {
 
 
     return (
-        <LayoutDB where="personal" titulo="Personal" btns={<Btns />} search={<SearchInput setQuickFilterText={setQuickFilterText} />}>
+        <LayoutDB
+            where="personal"
+            titulo="Personal"
+            btns={<Btns />}
+            search={<SearchInput setQuickFilterText={setQuickFilterText} />}>
 
             <MyAgGridReact
                 columnDefs={configTablet}
@@ -50,4 +54,4 @@ const Inicio: React.FC<InicioProps> = () => {
     );
 }
 
-export default Inicio;
+export default Personal;

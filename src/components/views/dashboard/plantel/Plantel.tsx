@@ -20,7 +20,7 @@ interface PlantelProps {
 
 const Plantel: React.FC<PlantelProps> = () => {
 
-    
+
 
     const initialPlantelState = {
         id: 1,
@@ -49,15 +49,19 @@ const Plantel: React.FC<PlantelProps> = () => {
     };
 
     return (
-        <LayoutDB where="plantel" titulo="Información del Plantel" >
+        <LayoutDB where="plantel">
             <div className="container-form">
                 <form
-                    className="form-basic"
+                    className="form-basic grid-2"
                     onSubmit={(e) => {
                         e.preventDefault();
                         onSubmit(e);
                     }}
                 >
+
+                    <div className="title grid-span-2 ">
+                        <h4>Información del Plantel</h4>
+                    </div>
 
                     <Input
                         type="text"
@@ -186,9 +190,9 @@ const Plantel: React.FC<PlantelProps> = () => {
                         }
                         hasContentState={true}
                     />
+                    <BtnSubmitBasic className="grid-span-2 " text="Actualizar info" />
 
-                    
-                    <BtnSubmitBasic text="Actualizar info" />
+
                 </form>
             </div>
 
