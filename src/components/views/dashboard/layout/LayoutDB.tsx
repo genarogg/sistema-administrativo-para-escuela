@@ -40,11 +40,17 @@ const LayoutDB: React.FC<LayoutDBProps> = ({ where = "", children, logoText = ""
         const [isActive, setIsActive] = useState(false);
         const home = { href: "#", logo: "/marca/logo.svg", alt: "Logo" };
 
+        const TextLogo = () => {
+            return (
+                <h2>e.t. ademar <br /> vasquez chavez</h2>
+            );
+        }
+
         const Logo = () => {
             return (
                 <div className="container-logo">
                     <A href={home.href}>
-                        {logoText !== "" ? logoText : <LogoMarca />}
+                        <TextLogo />
                     </A>
                 </div>
             );
