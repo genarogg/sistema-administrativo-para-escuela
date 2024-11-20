@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@ag-grid-community/react": "^32.2.2",
+    "@apollo/client": "^3.11.10",
     "ag-grid-react": "^32.2.2",
     "next": "14.2.18",
     "react": "^18",
