@@ -5,7 +5,7 @@ interface agregarProps {
 }
 
 const agregar: React.FC<agregarProps> = () => {
-    return (<Add />);
+    return (<Add tipoAction="h"/>);
 }
 
 export default agregar;
