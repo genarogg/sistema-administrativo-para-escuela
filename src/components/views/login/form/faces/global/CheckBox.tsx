@@ -18,7 +18,7 @@ const CheckBox: React.FC<CheckBoxProps> = ({ valueChange }) => {
   return (
     <div className="container-checkbox" onClick={handleClick}>
       {isClicked ? (
-        <Icono icono={<FaSquareCheck />} css="animate" />
+        <Icono icono={<FaSquareCheck />} className="animate" />
       ) : (
         <Icono icono={<ImCheckboxUnchecked />} />
       )}
