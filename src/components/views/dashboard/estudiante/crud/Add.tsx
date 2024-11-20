@@ -1469,7 +1469,8 @@ const Add: React.FC<AddProps> = () => {
                     </form>
                 </div>
 
-            </LayoutDB></>
+            </LayoutDB>
+        </>
     );
 }
 

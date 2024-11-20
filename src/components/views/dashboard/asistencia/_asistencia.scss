@@ -5,4 +5,20 @@
             grid-template-columns: 1fr 1fr 1fr;
         }
     }
+
+
+
+
+}
+
+.swal2-container {
+    color: #fff;
+
+    .swal2-title{
+        color: #fff;
+    }
+    > div {
+        background-color: rgba($color-secondary, 0.8);
+        justify-items: center;
+    }
 }

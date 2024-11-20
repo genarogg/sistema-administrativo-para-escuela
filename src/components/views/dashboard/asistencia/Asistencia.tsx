@@ -3,9 +3,7 @@ import { MyAgGridReact, SearchInput } from "@tablet";
 import { configTablet, staticDataFake } from "./configTablet";
 import React, { useState } from "react";
 import { BtnNormalBasic } from "@btn";
-
-import { A } from "@nano";
-
+import Add from "./crud/Add"
 
 interface AsistenciaProps { }
 
@@ -16,7 +14,7 @@ const Asistencia: React.FC<AsistenciaProps> = () => {
     const Btns = () => {
         return (
             <>
-                <BtnNormalBasic >entrada</BtnNormalBasic>
+                <Add tipoAction="entrada" ></Add>
                 <BtnNormalBasic >almuerzo</BtnNormalBasic>
                 <BtnNormalBasic >salida</BtnNormalBasic>
             </>
