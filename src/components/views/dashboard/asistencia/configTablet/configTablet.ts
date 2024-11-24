@@ -48,8 +48,20 @@ const empleadoColumnDefs: (ColDef<Empleado> | ColGroupDef<Empleado>)[] = [
     width: 150,
   },
   {
+    headerName: "Comentario Entrada",
+    field: "comentario_entrada",
+    filter: true,
+    width: 150,
+  },
+  {
     headerName: "Hora de Almuerzo",
     field: "hora_almuerzo",
+    filter: true,
+    width: 150,
+  },
+  {
+    headerName: "Comentario Almuerzo",
+    field: "comentario_almuerzo",
     filter: true,
     width: 150,
   },
@@ -60,17 +72,18 @@ const empleadoColumnDefs: (ColDef<Empleado> | ColGroupDef<Empleado>)[] = [
     width: 150,
   },
   {
+    headerName: "Comentario Salida",
+    field: "comentario_salida",
+    filter: true,
+    width: 150,
+  },
+  {
     headerName: "Vino",
     field: "vino",
     filter: true,
     width: 150,
   },
-  {
-    headerName: "Comentario",
-    field: "comentario",
-    filter: true,
-    width: 150,
-  },
+ 
 ];
 
 export default empleadoColumnDefs;

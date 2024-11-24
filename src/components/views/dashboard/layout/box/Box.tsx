@@ -13,8 +13,9 @@ const Box: React.FC<BoxProps> = ({ titulo, children, btns, search }) => {
                 <div className="contenido">
                     <div className="contenido-header">
                         <h3>{titulo}</h3>
-                        {btns && <div className="btns">{btns}</div>}
                         {search && <div className="search">{search}</div>}
+                        {btns && <div className="btns">{btns}</div>}
+
                     </div>
                     <div className="contenido-body">
                         {children}

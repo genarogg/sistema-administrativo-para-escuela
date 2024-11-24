@@ -1,15 +1,15 @@
 .tablet-search {
   .container-input {
-    @include width(200px);
+    @include width(100%);
     height: 30px;
     font-size: 18px;
 
     input {
-      @include width(200px);
+      @include width(100%);
     }
 
     span.holder {
-      left: 0;
+      // left: 0;
       font-size: 10px !important;
     }
   }

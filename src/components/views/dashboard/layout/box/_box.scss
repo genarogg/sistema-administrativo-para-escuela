@@ -35,12 +35,12 @@
 
         .btns {
             display: flex;
-            justify-content: center;
+            justify-content: right;
             align-items: center;
 
 
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            // display: grid;
+            // grid-template-columns: 1fr 1fr;
 
             .btn-normal-basic {
                 height: 28px;
@@ -57,22 +57,39 @@
                 position: relative;
                 width: 100%;
 
+                width: 30px;
+                height: 30px;
+                display: flex;
+                margin: 0 20px;
+
+                &.icono {
+                    width: 30px;
+
+                    
+                }
+                
+                .icono {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
                 button {
                     color: #fff;
 
                     &:hover {
                         background-color: $color-primary;
-                        color: #fff;
+                        border: 1px solid #a6e194;
                     }
 
                     &:active {
                         background-color: $color-primary;
-                        color: #fff;
+                        border: 1px solid #a6e194;
                     }
 
                     &:focus {
                         background-color: $color-primary;
-                        color: #fff;
+                        border: 1px solid #a6e194;
                     }
                 }
             }
@@ -95,14 +112,15 @@
                     display: none;
                 }
 
-                .css-1cfo1cf{
+                .css-1cfo1cf {
                     padding: 0;
                     margin: 0;
                 }
 
-                .css-qr46ko{
+                .css-qr46ko {
                     padding: 0;
                 }
+
                 .css-1nmdiq5-menu {
                     margin: 0;
                 }
@@ -119,7 +137,7 @@
                 left: 0;
                 display: none;
 
-                
+
             }
 
             .ag-header-cell.ag-header-cell-sortable.ag-focus-managed {

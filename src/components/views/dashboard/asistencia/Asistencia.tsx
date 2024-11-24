@@ -4,6 +4,10 @@ import { configTablet, staticDataFake } from "./configTablet";
 import React, { useState } from "react";
 import { BtnNormalBasic } from "@btn";
 import Add from "./crud/Add"
+import { Icono } from "@/components/nano";
+import { TbDoorEnter } from "react-icons/tb";
+import { IoFastFoodSharp } from "react-icons/io5";
+import { TbDoorExit } from "react-icons/tb";
 
 interface AsistenciaProps { }
 
@@ -14,9 +18,9 @@ const Asistencia: React.FC<AsistenciaProps> = () => {
     const Btns = () => {
         return (
             <>
-                <Add tipoAction="entrada" ></Add>
-                <BtnNormalBasic >almuerzo</BtnNormalBasic>
-                <BtnNormalBasic >salida</BtnNormalBasic>
+                <Add tipoAction="entrada"><Icono icono={<TbDoorEnter />} /></Add>
+                <Add tipoAction="almuerzo"><Icono icono={<IoFastFoodSharp />} /></Add>
+                <Add tipoAction="salida"><Icono icono={<TbDoorExit />} /></Add>
             </>
         );
     };

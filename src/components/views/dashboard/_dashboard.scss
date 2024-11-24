@@ -37,6 +37,7 @@
             color: $color-quinary;
         }
 
+        &.grid-2,
         .grid-2 {
             grid-template-columns: 1fr 1fr;
             display: grid;

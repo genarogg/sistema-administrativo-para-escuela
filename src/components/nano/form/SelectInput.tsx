@@ -13,6 +13,7 @@ interface SelectInputProps {
   value: any | null;
   valueChange: any;
   content?: boolean;
+  className?: string;
 }
 
 const SelectInput: React.FC<SelectInputProps> = ({
@@ -21,7 +22,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
   id = name,
   placeholder,
   icono,
-
+  className = "",
   valueChange,
   content = false,
 
@@ -37,7 +38,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
 
   return (
     <div
-      className={`container-input select ${isFocused ? "focus" : ""}`}
+      className={`container-input select ${className} ${isFocused ? "focus" : ""}`}
       onFocus={() => setIsFocused(true)}
       onBlur={() => setIsFocused(false)}
       {...props}
@@ -49,6 +50,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
       )}
 
       <Select
+        
         options={options}
         id={id}
         onChange={handleInputChange}

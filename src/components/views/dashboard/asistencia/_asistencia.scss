@@ -1,9 +1,7 @@
 .asistencia {
 
     .contenido-header {
-        .btns {
-            grid-template-columns: 1fr 1fr 1fr;
-        }
+
     }
 
 
@@ -11,14 +9,40 @@
 
 }
 
-.swal2-container {
-    color: #fff;
+.react-responsive-modal-root {
+    .react-responsive-modal-modal {
+        background-color: rgba(#045e55, .8);
+        border-radius: 10px;
 
-    .swal2-title{
-        color: #fff;
+        h2 {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 20px;
+            text-transform: capitalize;
+        }
+
+        form {
+            display: grid;
+            gap: 20px;
+            justify-items: center;
+        }
+
+        .container-input.textarea{
+            @include width(100%);
+            textarea{
+                color: #fff;
+                width: 100%;
+            }
+        }
+
+
     }
-    > div {
-        background-color: rgba($color-secondary, 0.8);
-        justify-items: center;
+
+    .react-responsive-modal-closeButton {
+        svg {
+            color: #fff;
+            fill: #fff;
+        }
     }
+
 }

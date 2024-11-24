@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-balham.css";
-
+import { FaRegUserCircle } from "react-icons/fa";
 import { Input } from "@form"
 
 interface MyAgGridReactProps {
@@ -54,13 +54,16 @@ const SearchInput: React.FC<SearchInputProps> = ({ setQuickFilterText }) => {
     };
 
     return (
-        <div className="tablet-search"> <Input
-            type="text"
-            name="search"
-            placeholder="Buscar..."
-            value={searchValue}
-            valueChange={handleInputChange}
-        /></div>
+        <div className="tablet-search">
+            <Input
+                type="text"
+                name="search"
+                placeholder="Buscar..."
+                value={searchValue}
+                valueChange={handleInputChange}
+                icono={<FaRegUserCircle />}
+            />
+        </div>
 
     );
 };

@@ -1,59 +1,36 @@
 import React, { useState } from "react";
 import { Input, TextArea } from "@form";
 import { BtnSubmitBasic, BtnNormalBasic } from "@btn";
-import Swal from 'sweetalert2';
-import withReactContent from 'sweetalert2-react-content';
-import { HiIdentification } from "react-icons/hi2";
+import { FaIdCard } from "react-icons/fa";
 
-const MySwal = withReactContent(Swal);
+import { Modal } from 'react-responsive-modal';
+import 'react-responsive-modal/styles.css';
+
+
 
 interface AddProps {
     fn?: () => void;
     tipoAction: string;
+    children?: React.ReactNode;
 }
 
-const Add: React.FC<AddProps> = ({ tipoAction }) => {
+const Add: React.FC<AddProps> = ({ tipoAction, children }) => {
     const [formData, setFormData] = useState({
         ci: "",
         comentario: "",
         activeComentario: false,
     });
 
-    const showAlert = () => {
-        let ci = formData.ci;
-        let comentario = formData.comentario;
+    const [open, setOpen] = useState(false);
 
-        MySwal.fire({
-            title: 'Registrar Información',
-            html: (
-                <div className="aside-asistencia">
-                    <input
-                        type="text"
-                        placeholder="Cédula de identidad"
-                        value={ci}
-                        onChange={(e) => ci = e.target.value}
-                        className="swal2-input"
-                    />
-                    {formData.activeComentario &&
-                        <textarea
-                            placeholder="Comentario"
-                            value={comentario}
-                            onChange={(e) => comentario = e.target.value}
-                            className="swal2-textarea"
-                        />
-                    }
-                </div>
-            ),
-            showCancelButton: true,
-            confirmButtonText: 'Registrar',
-            preConfirm: () => {
-                // Actualiza el estado del formulario con los valores ingresados
-                setFormData({ ...formData, ci, comentario });
-                // Aquí puedes manejar el envío del formulario
-                console.log('Datos del formulario:', { ci, comentario });
-                // Resetea el formulario después de enviar
-                setFormData({ ci: "", comentario: "", activeComentario: false });
-            }
+    const onOpenModal = () => setOpen(true);
+    const onCloseModal = () => setOpen(false);
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value,
         });
     };
 
@@ -62,6 +39,8 @@ const Add: React.FC<AddProps> = ({ tipoAction }) => {
 
         try {
             // Lógica para manejar el envío del formulario
+            console.log(formData);
+            onCloseModal();
         } catch (error) {
             console.error("Error al recuperar los datos de los empleados:", error);
         }
@@ -69,7 +48,39 @@ const Add: React.FC<AddProps> = ({ tipoAction }) => {
 
     return (
         <div>
-            <BtnNormalBasic onClick={showAlert}>Mostrar Alerta</BtnNormalBasic>
+            <BtnNormalBasic onClick={onOpenModal}>{children}</BtnNormalBasic>
+            <Modal open={open} onClose={onCloseModal} center>
+                <h2>registrar {tipoAction}</h2>
+                <form onSubmit={onSubmit}>
+                    <Input
+                        icono={<FaIdCard />}
+                        type="text"
+                        placeholder="CI"
+                        name="ci"
+                        hasContentState={true}
+                        value={formData.ci}
+                        valueChange={(e) =>
+                            setFormData({
+                                ...formData,
+                                ci: e.target.value,
+                            })
+                        }
+                    />
+                    <TextArea
+                        name="comentario"
+                        placeholder="Comentario"
+                        content={true}
+                        value={formData.comentario}
+                        valueChange={(e) =>
+                            setFormData({
+                                ...formData,
+                                comentario: e.target.value,
+                            })
+                        }
+                    />
+                    <BtnSubmitBasic text="Enviar"></BtnSubmitBasic>
+                </form>
+            </Modal>
         </div>
     );
 };

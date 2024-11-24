@@ -5,19 +5,20 @@ import React, { useState } from "react";
 import { BtnNormalBasic } from "@btn";
 import { FaUserGraduate } from "react-icons/fa";
 import { A, Icono } from "@nano";
+import { FaUserTie } from "react-icons/fa6";
 
 
-interface EstudianteProps { }
+interface UsuarioProps { }
 
-const Estudiante: React.FC<EstudianteProps> = () => {
+const Usuario: React.FC<UsuarioProps> = () => {
     const [quickFilterText, setQuickFilterText] = useState("");
 
 
     const Btns = () => {
         return (
             <>
-                <BtnNormalBasic ><A href="/dashboard/estudiante/agregar">
-                    <Icono icono={<FaUserGraduate />} />
+                <BtnNormalBasic ><A href="/dashboard/usuario/agregar">
+                    <Icono icono={<FaUserTie />} />
                 </A></BtnNormalBasic>
             </>
         );
@@ -26,8 +27,8 @@ const Estudiante: React.FC<EstudianteProps> = () => {
 
     return (
         <LayoutDB
-            where="estudiante"
-            titulo="Estudiante"
+            where="usuario"
+            titulo="Usuario"
             btns={<Btns />}
             search={<SearchInput setQuickFilterText={setQuickFilterText} />}>
 
@@ -40,4 +41,4 @@ const Estudiante: React.FC<EstudianteProps> = () => {
     );
 }
 
-export default Estudiante;
+export default Usuario;

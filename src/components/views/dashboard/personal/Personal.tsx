@@ -4,9 +4,9 @@ import { EmpleadoTypes, configTablet, staticDataFake } from "./configTablet";
 import React, { useState } from "react";
 import { BtnNormalBasic } from "@btn";
 import { SelectInput } from "@form";
-import { A } from "@nano";
+import { A, Icono } from "@nano";
 
-
+import { TbUsersPlus } from "react-icons/tb";
 interface PersonalProps { }
 
 const empleadoTypes = [
@@ -24,7 +24,11 @@ const Personal: React.FC<PersonalProps> = () => {
     const Btns = () => {
         return (
             <>
-                <BtnNormalBasic ><A href="/dashboard/personal/agregar">agregar</A></BtnNormalBasic>
+                <BtnNormalBasic className="icono">
+                    <A href="/dashboard/personal/agregar">
+                        <Icono icono={<TbUsersPlus />} />
+                    </A>
+                </BtnNormalBasic>
                 <SelectInput
                     placeholder="empleados"
                     name="select"
