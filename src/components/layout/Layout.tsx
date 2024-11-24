@@ -11,7 +11,7 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children, header }) => {
     const TextLogo = () => {
         return (
-            <h2>e.t. ademar <br /> vasquez chavez</h2>
+            <h2>E.T.C ademar <br /> vasquez chavez</h2>
         );
     }
 
@@ -24,7 +24,7 @@ const Layout: React.FC<LayoutProps> = ({ children, header }) => {
         {children}
         <Footer
             redesSociales={redesSociales}
-            mensaje="Con ❤️ para e.t. ademar vasquez chavez"
+            mensaje="Con ❤️ para e.t.c ademar vasquez chavez"
         />
     </>
     );

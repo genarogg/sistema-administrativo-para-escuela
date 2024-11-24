@@ -50,7 +50,7 @@ const LayoutDB: React.FC<LayoutDBProps> = ({ where = "", children, logoText = ""
 
         const TextLogo = () => {
             return (
-                <h2>e.t. ademar <br /> vasquez chavez</h2>
+                <h2>E.T.C ademar <br /> vasquez chavez</h2>
             );
         }
 

@@ -59,7 +59,7 @@ const Home: React.FC<HomeProps> = () => {
             <WallPaperBasico
                 img={"/home/download.jpg"}
                 redesSociales={redesSociales}
-                title="e.t. ademar vasquez chavez"
+                title="E.T.C ademar vasquez chavez"
                 subTitle="Escuela Técnica Comercial"
             />
 
@@ -96,7 +96,7 @@ const Home: React.FC<HomeProps> = () => {
                         width={120}
                         height={120}
                     />
-                    <h2>ET Ademár <br /> Vasquez Chávez</h2>
+                    <h2>E.T.C Ademár <br /> Vasquez Chávez</h2>
                 </div>
                 <div className="contacto">
                     <p><strong>Dirección:</strong> Avenida Rómulo Gallegos con Paseo Metropolitano Calle 30B Sector El Algarrobo</p>
