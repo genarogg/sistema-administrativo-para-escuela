@@ -3,23 +3,21 @@ import { MyAgGridReact, SearchInput } from "@tablet";
 import { configTablet, staticDataFake } from "./configTablet";
 import React, { useState } from "react";
 import { BtnNormalBasic } from "@btn";
-import { FaUserGraduate } from "react-icons/fa";
+
 import { A, Icono } from "@nano";
 import { FaUserTie } from "react-icons/fa6";
 
 
-interface UsuarioProps { }
+interface BitacoraProps { }
 
-const Usuario: React.FC<UsuarioProps> = () => {
+const Bitacora: React.FC<BitacoraProps> = () => {
     const [quickFilterText, setQuickFilterText] = useState("");
 
 
     const Btns = () => {
         return (
             <>
-                <BtnNormalBasic ><A href="/dashboard/usuario/agregar">
-                    <Icono icono={<FaUserTie />} />
-                </A></BtnNormalBasic>
+                
             </>
         );
     };
@@ -27,8 +25,8 @@ const Usuario: React.FC<UsuarioProps> = () => {
 
     return (
         <LayoutDB
-            where="usuario"
-            titulo="Usuario"
+            where="bitacora"
+            titulo="Bitacora"
             btns={<Btns />}
             search={<SearchInput setQuickFilterText={setQuickFilterText} />}>
 
@@ -41,4 +39,4 @@ const Usuario: React.FC<UsuarioProps> = () => {
     );
 }
 
-export default Usuario;
+export default Bitacora;

@@ -1,4 +1,4 @@
-import EstudianteFamiliaTypes from "./UsuarioTypes";
+import EstudianteFamiliaTypes from "./BitacoraTypes";
 import configTablet from "./configTablet";
 import staticDataFake from "./staticDataFake";
 

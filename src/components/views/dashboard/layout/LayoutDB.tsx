@@ -1,14 +1,21 @@
 import Layout from "@layout";
 import React, { useEffect, useState } from "react";
 import scrollHeader from "../../../layout/headers/HeaderFn/scrollHeader";
-import LogoMarca from "@imgSVG/Logo";
-import { TiHome } from "react-icons/ti";
+
 import Nav from "../../../layout/headers/Navs/Nav";
 import { Btn3Hamburgues } from "@btn";
 import { A } from "@nano";
-import { FaInfoCircle, FaBullseye, FaEye, FaSignInAlt } from "react-icons/fa";
+
 import { WallPaperBasico } from "@wallpaper";
 import Box from "./box/Box";
+
+import { FaUserGraduate } from "react-icons/fa6";
+import { FaUsersGear } from "react-icons/fa6";
+import { MdChecklistRtl } from "react-icons/md";
+import { MdOutlineWatchLater } from "react-icons/md";
+import { AiOutlineLogout } from "react-icons/ai";
+import { GrUserWorker } from "react-icons/gr";
+
 interface LayoutDBProps {
     children: React.ReactNode;
     logoText?: React.ReactNode;
@@ -30,12 +37,12 @@ const LayoutDB: React.FC<LayoutDBProps> = ({ where = "", children, logoText = ""
     const Header = () => {
         const menuItems = [
 
-            { href: "/dashboard/personal", label: "personal", icon: <FaInfoCircle /> },
-            { href: "/dashboard/estudiante", label: "estudiante", icon: <FaBullseye /> },
-            { href: "/dashboard/asistencia", label: "asistencia", icon: <FaEye /> },
-            // { href: "#contacto", label: "contacto", icon: <FaHandHoldingDollar /> },
-            { href: "/dashboard/usuario", label: "usuario", icon: <TiHome /> },
-            { href: "/login", label: "login", icon: <FaSignInAlt /> },
+            { href: "/dashboard/estudiante", label: "estudiante", icon: <FaUserGraduate /> },
+            { href: "/dashboard/personal", label: "personal", icon: <GrUserWorker /> },
+            { href: "/dashboard/asistencia", label: "asistencia", icon: <MdChecklistRtl /> },
+            { href: "/dashboard/usuario", label: "usuario", icon: <FaUsersGear /> },
+            { href: "/dashboard/bitacora", label: "bitacora", icon: <MdOutlineWatchLater /> },
+            { href: "/", label: "salir", icon: <AiOutlineLogout /> },
         ];
 
         const [isActive, setIsActive] = useState(false);
