@@ -1,7 +1,9 @@
 import { WallPaperBasico } from "@wallpaper";
 import Layout from "@layout";
+import { TitleSection } from "@section";
 import { Simple2Grid } from "@section";
 import { redesSociales } from "../../../const/redesSociales";
+import Image from "next/image";
 
 interface HomeProps { }
 
@@ -77,7 +79,42 @@ const Home: React.FC<HomeProps> = () => {
                     reorder={section.reorder}
                 />
             ))}
-            
+
+            <TitleSection titulo="Información de la institución" className="footer-up-titulo" />
+            <div className="footer-up">
+                <div className="institucion">
+                    <Image
+                        alt="Mountains"
+
+                        src="/dboard/logo.png"
+                        sizes="100vw"
+                        // Make the image display full width
+                        style={{
+                            width: '120px',
+                            height: 'auto',
+                        }}
+                        width={120}
+                        height={120}
+                    />
+                    <h2>ET Ademár <br /> Vasquez Chávez</h2>
+                </div>
+                <div className="contacto">
+                    <p><strong>Dirección:</strong> Avenida Rómulo Gallegos con Paseo Metropolitano Calle 30B Sector El Algarrobo</p>
+                    <p><strong>Dependencia:</strong> Nacional</p>
+                    <p><strong>Nombre del Circuito:</strong> Carlos Lanza</p>
+                    <p><strong>Consejo Comunal:</strong> El Algarrobo</p>
+                    <p><strong>Modalidad:</strong> Media Técnica</p>
+                </div>
+                <div className="informacion">
+                    <p><strong>Código Circuital:</strong> 180801001</p>
+                    <p><strong>Comuna:</strong> Chávez. Esperanza y Paz</p>
+                    <p><strong>Código de Plantel:</strong> TO122D1808</p>
+                    <p><strong>Código de Dependencia:</strong> 005782000</p>
+                    <p><strong>Código Estadístico:</strong> 00180538</p>
+                </div>
+
+            </div>
+
         </Layout>
     );
 };

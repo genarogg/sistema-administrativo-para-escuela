@@ -15,7 +15,7 @@ const Inicio: React.FC<InicioProps> = () => {
                     // Importing an image will
                     // automatically set the width and height
                     src="/dboard/logo.png"
-                    sizes="100vw"
+                    sizes="70vw"
                     // Make the image display full width
                     style={{
                         width: '100%',

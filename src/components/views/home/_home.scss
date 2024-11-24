@@ -6,6 +6,35 @@
     text-align: center;
 }
 
+.footer-up-titulo {
+    height: 100px;
+
+}
+
+
+.footer-up {
+    background-color: $color-primary;
+    color: #fff;
+    padding: 20px 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+
+    >div {
+        max-width: 400px;
+    }
+
+    .institucion {
+        justify-content: center;
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+
+
+}
+
 @media screen and (max-width: 850px) {
     .simple-grid2 {
         .grid {
