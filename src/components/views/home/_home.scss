@@ -20,8 +20,11 @@
     grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
 
+    gap: 25px;
+
     >div {
-        max-width: 400px;
+        @include width(370px);
+        padding: 10px 20px;
     }
 
     .institucion {
@@ -33,6 +36,18 @@
     }
 
 
+}
+
+@media screen and (max-width: 1000px) {
+    .footer-up {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .footer-up {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media screen and (max-width: 850px) {
