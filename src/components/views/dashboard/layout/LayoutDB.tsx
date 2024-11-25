@@ -8,14 +8,14 @@ import { A } from "@nano";
 
 import { WallPaperBasico } from "@wallpaper";
 import Box from "./box/Box";
-
+import { RiNewspaperFill } from "react-icons/ri";
 import { FaUserGraduate } from "react-icons/fa6";
 import { FaUsersGear } from "react-icons/fa6";
 import { MdChecklistRtl } from "react-icons/md";
 import { MdOutlineWatchLater } from "react-icons/md";
 import { AiOutlineLogout } from "react-icons/ai";
 import { GrUserWorker } from "react-icons/gr";
-
+import { PiShareNetworkBold } from "react-icons/pi";
 interface LayoutDBProps {
     children: React.ReactNode;
     logoText?: React.ReactNode;
@@ -40,6 +40,10 @@ const LayoutDB: React.FC<LayoutDBProps> = ({ where = "", children, logoText = ""
             { href: "/dashboard/estudiante", label: "estudiante", icon: <FaUserGraduate /> },
             { href: "/dashboard/personal", label: "personal", icon: <GrUserWorker /> },
             { href: "/dashboard/asistencia", label: "asistencia", icon: <MdChecklistRtl /> },
+            { href: "/dashboard/pasantes", label: "pasantes", icon: <PiShareNetworkBold /> },
+
+            { href: "/dashboard/pasantia-aceptado", label: "Carta Pasantias", icon: <RiNewspaperFill /> },
+
             { href: "/dashboard/usuario", label: "usuario", icon: <FaUsersGear /> },
             { href: "/dashboard/bitacora", label: "bitacora", icon: <MdOutlineWatchLater /> },
             { href: "/", label: "salir", icon: <AiOutlineLogout /> },

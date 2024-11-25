@@ -475,7 +475,7 @@ const Add: React.FC<AddProps> = () => {
                                         parentesco: e.target.value,
                                     })
                                 }
-                                required={false}
+                                required={true}
                             />
                             <Input
                                 type="text"
@@ -489,7 +489,7 @@ const Add: React.FC<AddProps> = () => {
                                         apellidos: e.target.value,
                                     })
                                 }
-                                required={false}
+                                required={true}
                             />
                             <Input
                                 type="text"
@@ -503,7 +503,7 @@ const Add: React.FC<AddProps> = () => {
                                         nombres: e.target.value,
                                     })
                                 }
-                                required={false}
+                                required={true}
                             />
                             <SelectInput
                                 icono={<FaIdCard />}
@@ -531,7 +531,7 @@ const Add: React.FC<AddProps> = () => {
                                         cedula: e.target.value,
                                     })
                                 }
-                                required={false}
+                                required={true}
                             />
                             <Input
                                 type="text"
@@ -545,7 +545,7 @@ const Add: React.FC<AddProps> = () => {
                                         urb_br: e.target.value,
                                     })
                                 }
-                                required={false}
+                                required={true}
                             />
                             <Input
                                 type="date"
@@ -559,7 +559,7 @@ const Add: React.FC<AddProps> = () => {
                                         fecha_nacimiento: e.target.value,
                                     })
                                 }
-                                required={false}
+                                required={true}
                             />
                             <Input
                                 type="text"
@@ -573,7 +573,7 @@ const Add: React.FC<AddProps> = () => {
                                         direccion_habitacion_av: e.target.value,
                                     })
                                 }
-                                required={false}
+                                required={true}
                             />
                             <Input
                                 type="text"
@@ -587,7 +587,7 @@ const Add: React.FC<AddProps> = () => {
                                         calle: e.target.value,
                                     })
                                 }
-                                required={false}
+                                required={true}
                             />
                             <Input
                                 type="text"
@@ -601,7 +601,7 @@ const Add: React.FC<AddProps> = () => {
                                         casa_apartamento: e.target.value,
                                     })
                                 }
-                                required={false}
+                                required={true}
                             />
                             <Input
                                 type="text"
@@ -615,7 +615,7 @@ const Add: React.FC<AddProps> = () => {
                                         numero_habitacion: e.target.value,
                                     })
                                 }
-                                required={false}
+                                required={true}
                             />
                             <Input
                                 type="text"
@@ -629,7 +629,7 @@ const Add: React.FC<AddProps> = () => {
                                         referencia: e.target.value,
                                     })
                                 }
-                                required={false}
+                                required={true}
                             />
                             <Input
                                 type="text"
@@ -643,7 +643,7 @@ const Add: React.FC<AddProps> = () => {
                                         ciudad: e.target.value,
                                     })
                                 }
-                                required={false}
+                                required={true}
                             />
                             <Input
                                 type="text"
@@ -657,7 +657,7 @@ const Add: React.FC<AddProps> = () => {
                                         parroquia: e.target.value,
                                     })
                                 }
-                                required={false}
+                                required={true}
                             />
                             <Input
                                 type="text"
@@ -671,7 +671,7 @@ const Add: React.FC<AddProps> = () => {
                                         estado: e.target.value,
                                     })
                                 }
-                                required={false}
+                                required={true}
                             />
                             <Input
                                 type="text"
@@ -685,7 +685,7 @@ const Add: React.FC<AddProps> = () => {
                                         telefono_habitacion: e.target.value,
                                     })
                                 }
-                                required={false}
+                                required={true}
                             />
                             <Input
                                 type="number"
@@ -699,7 +699,7 @@ const Add: React.FC<AddProps> = () => {
                                         telefono_personal: e.target.value,
                                     })
                                 }
-                                required={false}
+                                required={true}
                             />
                             <Input
                                 type="email"
@@ -713,7 +713,7 @@ const Add: React.FC<AddProps> = () => {
                                         email: e.target.value,
                                     })
                                 }
-                                required={false}
+                                required={true}
                             />
                             <Input
                                 type="text"
@@ -727,7 +727,7 @@ const Add: React.FC<AddProps> = () => {
                                         nivelAcademico: e.target.value,
                                     })
                                 }
-                                required={false}
+                                required={true}
                             />
                             <Input
                                 type="text"
@@ -741,7 +741,7 @@ const Add: React.FC<AddProps> = () => {
                                         profesion: e.target.value,
                                     })
                                 }
-                                required={false}
+                                required={true}
                             />
                             <Input
                                 type="text"
@@ -755,7 +755,7 @@ const Add: React.FC<AddProps> = () => {
                                         lugarTrabajo: e.target.value,
                                     })
                                 }
-                                required={false}
+                                required={true}
                             />
                             <Input
                                 type="number"
@@ -769,7 +769,7 @@ const Add: React.FC<AddProps> = () => {
                                         telefono_trabajo: e.target.value,
                                     })
                                 }
-                                required={false}
+                                required={true}
                             />
                             <Input
                                 type="text"
@@ -783,7 +783,7 @@ const Add: React.FC<AddProps> = () => {
                                         cargo: e.target.value,
                                     })
                                 }
-                                required={false}
+                                required={true}
                             />
                         </div>
 
