@@ -1,7 +1,6 @@
 interface EstudianteFamiliaTypes {
   id: number;
-  madre_id: number;
-  padre_id: number;
+
   reprecentante_id: number;
   apellidos: string;
   nombres: string;
@@ -31,48 +30,7 @@ interface EstudianteFamiliaTypes {
   usuario: string;
   created_at: string;
   updated_at: string;
-  madre_apellidos: string;
-  madre_nombres: string;
-  madre_nacionalidad: string;
-  madre_cedula: string;
-  madre_urb_br: string;
-  madre_direccion_habitacion_av: string;
-  madre_calle: string;
-  madre_casa_apartamento: string;
-  madre_numero_habitacion: string;
-  madre_referencia: string;
-  madre_ciudad: string;
-  madre_parroquia: string;
-  madre_estado: string;
-  madre_movil_casa: string;
-  madre_telefono_personal: string;
-  madre_telefono_trabajo: string;
-  madre_email: string;
-  madre_nivelAcademico: string;
-  madre_profesion: string;
-  madre_lugarTrabajo: string;
-  madre_cargo: string;
-  padre_apellidos: string;
-  padre_nombres: string;
-  padre_nacionalidad: string;
-  padre_cedula: string;
-  padre_urb_br: string;
-  padre_direccion_habitacion_av: string;
-  padre_calle: string;
-  padre_casa_apartamento: string;
-  padre_numero_habitacion: string;
-  padre_referencia: string;
-  padre_ciudad: string;
-  padre_parroquia: string;
-  padre_estado: string;
-  padre_movil_casa: string;
-  padre_telefono_personal: string;
-  padre_telefono_trabajo: string;
-  padre_email: string;
-  padre_nivelAcademico: string;
-  padre_profesion: string;
-  padre_lugarTrabajo: string;
-  padre_cargo: string;
+
   representante_apellidos: string;
   representante_nombres: string;
   representante_nacionalidad: string;
@@ -93,6 +51,7 @@ interface EstudianteFamiliaTypes {
   representante_profesion: string;
   representante_lugarTrabajo: string;
   representante_telefono_trabajo: string;
+  representante_nivelAcademico: string;
   representante_cargo: string;
 }
 
