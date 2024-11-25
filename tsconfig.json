@@ -24,6 +24,7 @@
       "@form": ["./src/components/nano/form/index.tsx"],
       "@layout": ["./src/components/layout/Layout.tsx"],
       "@tablet": ["./src/components/nano/tablet/index.tsx"],
+      "@pdf":["./src/components/PDF/index.tsx"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/**/*.tsx"],
