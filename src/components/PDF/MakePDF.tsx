@@ -1,6 +1,7 @@
 import React from "react";
 import dynamic from 'next/dynamic';
 import { BlobProvider } from "@react-pdf/renderer";
+import { BtnNormalBasic} from "@btn";
 
 interface MakePDFProps {
     namePDF?: string;

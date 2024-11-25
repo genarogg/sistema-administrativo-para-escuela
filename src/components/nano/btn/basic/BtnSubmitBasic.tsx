@@ -1,10 +1,11 @@
 import React from "react";
 
 interface BtnSubmitBasicProps {
-  text: string;
+  text?: string;
   className?: string;
   id?: string;
   loading?: boolean;
+  children?: React.ReactNode;
 }
 
 const BtnSubmitBasic: React.FC<BtnSubmitBasicProps> = ({
@@ -12,10 +13,11 @@ const BtnSubmitBasic: React.FC<BtnSubmitBasicProps> = ({
   className = "",
   id,
   loading = false,
+  children,
 }) => {
   return (
     <div className={`btn-submit-basic ${className}`} id={id}>
-      <button disabled={loading}>{text}</button>
+      <button disabled={loading}>{children ? children : text}</button>
     </div>
   );
 };

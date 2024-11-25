@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { LayoutPDF, Img, Center, P, H1, H2, H3, H4, H5, H6, Strong, Em, U, Small, Blockquote, Mark } from '@pdf';
 import { View } from '@react-pdf/renderer';
@@ -6,22 +6,30 @@ import { text } from 'stream/consumers';
 // Importar PDFViewer dinámicamente solo en el lado del cliente
 const PDFViewer = dynamic(() => import('@react-pdf/renderer').then(mod => mod.PDFViewer), { ssr: false });
 
-const Documento = () => {
-    const [formData, setFormData] = useState({
-        nombresJefe: "Genaro1",
+export const Documento = ({ state = {} }: any) => {
+
+    const initialState = {
+        nombresJefe: "Genaro2",
         cedulaJefe: "Genaro1",
         nombresEstudiante: "Genaro1",
         cedulaEstudiante: "Genaro1",
         cargo: "Genaro1",
         empresa: "Genaro1",
         direccion: "Genaro1",
-
+        fecha: "Genaro1",
         de: "Genaro1",
         para: "Genaro1",
         presentacion: "Genaro1",
         carta: "Genaro1",
         anoEscolar: "Genaro1",
-    });
+        ...state
+    };
+
+
+
+    const [formData, setFormData] = useState(initialState);
+
+
 
     const formatDate = (date: Date) => {
         const day = String(date.getDate()).padStart(2, '0');
@@ -31,6 +39,11 @@ const Documento = () => {
     }
 
     const currentDate = formatDate(new Date());
+
+
+    useEffect(() => {
+        setFormData(initialState);
+    }, [state]);
 
     return (
         <LayoutPDF>
@@ -43,7 +56,7 @@ const Documento = () => {
                 marginTop: 15,
                 marginBottom: 18
             }}
-            >Carta De Aceptacion De Pasantias</H2>
+            >Carta De Aceptación De Pasantías</H2>
 
             <P>
                 Reciba un caluroso saludo Fraterno, Socialista, Humanista y deseándoles a usted y a su equipo de trabajo el mayor bienestar posible que les permita continuar impulsando con trabajo comprometido el país que todos los venezolanos merecemos.
@@ -61,7 +74,13 @@ const Documento = () => {
                 Sin más a que hacer referencia y segura de contar con toda la colaboración requerida, me despido.
             </P>
 
-            <Center>
+            <Center style={{
+                position: "absolute",
+                left: "0",
+                right: "0",
+                bottom: "70"
+            }}
+            >
                 <H6>PROFESORA VIRGINIA CONTRERAS</H6>
                 <H6>COORDINADORA DE PASANTÍAS</H6>
                 <P style={{ fontSize: "8px", textAlign: "center", margin: "2px" }}>E.T.C.R. - Av. Romulo Gallegos, Acarigua, Portuguesa
@@ -69,6 +88,7 @@ const Documento = () => {
                 <P style={{ fontSize: "8px", textAlign: "center", margin: "2px" }}>Zona Postal : 3301 - Teléfono: 0255 6642385
                 </P>
             </Center>
+
         </LayoutPDF>
     );
 }
@@ -76,13 +96,13 @@ const Documento = () => {
 const PDFPage: React.FC = () => {
     return (
         <div>
-
             <PDFViewer width="100%" height="1500">
                 <Documento />
             </PDFViewer>
-
         </div>
     );
 }
+
+
 
 export default PDFPage;

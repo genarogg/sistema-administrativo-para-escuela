@@ -1,4 +1,4 @@
-import Plantel from "@/components/views/dashboard/plantel/Plantel";
+import Plantel from "@/components/views/dashboard/pasantias_aceptado/Pasantias_Aceptado";
 interface plantelProps {
     
 }
