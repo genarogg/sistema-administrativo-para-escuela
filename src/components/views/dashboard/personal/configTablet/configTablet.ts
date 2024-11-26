@@ -15,6 +15,12 @@ const empleadoColumnDefs: (ColDef<Empleado> | ColGroupDef<Empleado>)[] = [
       },
   },
   {
+    headerName: "Tipo de empleado",
+    field: "tipo_empleado",
+    filter: true,
+  
+  },
+  {
     headerName: "DATOS DEL PERSONAL",
     children: [
       { headerName: "Nombres", field: "nombres", filter: true },

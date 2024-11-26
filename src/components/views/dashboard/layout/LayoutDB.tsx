@@ -38,9 +38,9 @@ const LayoutDB: React.FC<LayoutDBProps> = ({ where = "", children, logoText = ""
         const menuItems = [
 
             // { href: "/dashboard/estudiante", label: "estudiante", icon: <FaUserGraduate /> },
-            { href: "/dashboard/personal", label: "personal", icon: <GrUserWorker /> },
+            // { href: "/dashboard/personal", label: "personal", icon: <GrUserWorker /> },
             { href: "/dashboard/asistencia", label: "asistencia", icon: <MdChecklistRtl /> },
-            { href: "/dashboard/pasantes", label: "pasantes", icon: <PiShareNetworkBold /> },
+            // { href: "/dashboard/pasantes", label: "pasantes", icon: <PiShareNetworkBold /> },
 
             // { href: "/dashboard/pasantia-aceptado", label: "Carta Pasantias", icon: <RiNewspaperFill /> },
 

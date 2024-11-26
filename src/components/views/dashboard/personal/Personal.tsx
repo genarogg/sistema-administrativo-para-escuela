@@ -14,10 +14,10 @@ import { TbUsersPlus } from "react-icons/tb";
 interface PersonalProps { }
 
 const empleadoTypes = [
-    { value: "cocinero", label: "Cocinero" },
-    { value: "docente", label: "Docente" },
-    { value: "administrativo", label: "Administrativo" },
-    { value: "obrero", label: "Obrero" }
+    { value: "docentes", label: "Docente" },
+    { value: "administrativos", label: "Administrativo" },
+    { value: "obreros", label: "Obrero" },
+    { value: "cocineros", label: "Cocinero" },
 ];
 
 
