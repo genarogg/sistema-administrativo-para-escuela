@@ -1,7 +1,7 @@
 import LayoutDB from "../layout/LayoutDB";
 import { MyAgGridReact, SearchInput } from "@tablet";
-import { configTablet, staticDataFake } from "./configTablet";
-import React, { useState } from "react";
+import { configTablet, staticDataFake, AsistenciaTypes } from "./configTablet";
+import React, { useEffect, useState } from "react";
 import { BtnNormalBasic } from "@btn";
 import Add from "./crud/Add"
 import { Icono } from "@/components/nano";
@@ -25,6 +25,19 @@ const Asistencia: React.FC<AsistenciaProps> = () => {
         );
     };
 
+    const [data, setData] = useState<AsistenciaTypes[]>(staticDataFake);
+
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
+    useEffect(() => {
+        fetch(`${apiUrl}/asistencia/get-all`)
+            .then((res) => res.json())
+            .then((res) => {
+                console.log(res.data)
+                setData(res.data);
+            });
+    }, []);
+
 
     return (
         <LayoutDB
@@ -35,7 +48,7 @@ const Asistencia: React.FC<AsistenciaProps> = () => {
 
             <MyAgGridReact
                 columnDefs={configTablet}
-                rowData={staticDataFake}
+                rowData={data}
                 quickFilterText={quickFilterText}
             />
         </LayoutDB>

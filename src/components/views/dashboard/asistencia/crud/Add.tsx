@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { Input, TextArea } from "@form";
 import { BtnSubmitBasic, BtnNormalBasic } from "@btn";
 import { FaIdCard } from "react-icons/fa";
-
+import { notify } from "@nano";
 import { Modal } from 'react-responsive-modal';
 import 'react-responsive-modal/styles.css';
+import router from "next/router";
 
 
 
@@ -34,18 +35,47 @@ const Add: React.FC<AddProps> = ({ tipoAction, children }) => {
         });
     };
 
-    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        try {
-            // Lógica para manejar el envío del formulario
-            console.log(formData);
-            onCloseModal();
-        } catch (error) {
-            console.error("Error al recuperar los datos de los empleados:", error);
-        }
-    };
+        const data = {
+            ci: formData.ci,
+            comentario: formData.comentario,
+            tipoAction,
+        };
 
+        const token = localStorage.getItem("token");
+
+        const url = `${process.env.NEXT_PUBLIC_API_URL}/asistencia/registrar`;
+
+
+        try {
+            const response = await fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
+                },
+                body: JSON.stringify(data),
+            });
+
+            const result = await response.json();
+
+            notify({ message: result.message, type: result.type });
+            
+            setOpen(false);
+
+            if (response.ok) {
+                console.log("Empleado registrado con éxito");
+
+                /* router.push("/dashboard/estudiante"); */
+            }
+
+        } catch (error) {
+            console.error("Error en la solicitud:", error);
+        }
+
+    };
     return (
         <div>
             <BtnNormalBasic onClick={onOpenModal}>{children}</BtnNormalBasic>
@@ -77,6 +107,7 @@ const Add: React.FC<AddProps> = ({ tipoAction, children }) => {
                                 comentario: e.target.value,
                             })
                         }
+                        required={false}
                     />
                     <BtnSubmitBasic text="Enviar"></BtnSubmitBasic>
                 </form>
