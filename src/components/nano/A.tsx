@@ -26,6 +26,7 @@ const A: React.FC<AProps> = ({ href, type, children, className }) => {
   }
 
   if (type === "push") {
+    
     return router.push(href);
   }
 

@@ -1,6 +1,10 @@
+import { useEffect } from "react";
+
 import LayoutDB from "../layout/LayoutDB";
 import { MyAgGridReact, SearchInput } from "@tablet";
 import { EmpleadoTypes, configTablet, staticDataFake } from "./configTablet";
+
+
 import React, { useState } from "react";
 import { BtnNormalBasic } from "@btn";
 import { SelectInput } from "@form";
@@ -41,6 +45,17 @@ const Personal: React.FC<PersonalProps> = () => {
         );
     };
 
+    const [data, setData] = useState<EmpleadoTypes[]>(staticDataFake);
+
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
+    useEffect(() => {
+        fetch(`${apiUrl}/empleado/get-all`)
+            .then((res) => res.json())
+            .then((res) => {
+                setData(res.data);
+            });
+    }, []);
 
     return (
         <LayoutDB
@@ -51,7 +66,7 @@ const Personal: React.FC<PersonalProps> = () => {
 
             <MyAgGridReact
                 columnDefs={configTablet}
-                rowData={staticDataFake}
+                rowData={data}
                 quickFilterText={quickFilterText}
             />
         </LayoutDB>

@@ -10,7 +10,7 @@ const notify = ({ type, message }: ToastProps) => {
   switch (type) {
     case "success":
       toast.success(message, {
-        position: "top-right",
+        position: "bottom-center",
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -22,7 +22,7 @@ const notify = ({ type, message }: ToastProps) => {
       break;
     case "error":
       toast.error(message, {
-        position: "top-right",
+        position: "bottom-center",
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -34,7 +34,7 @@ const notify = ({ type, message }: ToastProps) => {
       break;
     case "warning":
       toast.warning(message, {
-        position: "top-right",
+        position: "bottom-center",
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,

@@ -1,6 +1,7 @@
 import HeaderLandingLeft from "./headers/HeaderLandingLeft";
 import Footer from "./footer/Footer";
 import { redesSociales } from "../../const/redesSociales";
+import { ToastContainer } from "react-toastify";
 
 
 interface LayoutProps {
@@ -26,6 +27,7 @@ const Layout: React.FC<LayoutProps> = ({ children, header }) => {
             redesSociales={redesSociales}
             mensaje="Con ❤️ para e.t.c ademar vasquez chavez"
         />
+          <ToastContainer />
     </>
     );
 }

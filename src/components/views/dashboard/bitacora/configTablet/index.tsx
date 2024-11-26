@@ -1,4 +1,4 @@
-import EstudianteFamiliaTypes from "./BitacoraTypes";
+import BitacoraTypes from "./BitacoraTypes";
 import configTablet from "./configTablet";
 import staticDataFake from "./staticDataFake";
 
@@ -7,5 +7,5 @@ export {
     staticDataFake
 };
 
-export type { EstudianteFamiliaTypes };
+export type { BitacoraTypes };
 

@@ -31,6 +31,7 @@ import {
     FaUserTie,
     FaCalendarAlt,
 } from "react-icons/fa";
+import router from "next/router";
 
 interface AddProps {
 
@@ -75,32 +76,32 @@ const Add: React.FC<AddProps> = () => {
     });
 
     const [datosRepresentante, setDatosRepresentante] = useState({
-        parentesco: "",
-        apellidos: "",
-        nombres: "",
-        nacionalidad: "",
-        cedula: "",
+        representante_parentesco: "",
+        representante_apellidos: "",
+        representante_nombres: "",
+        representante_nacionalidad: "",
+        representante_cedula: "",
 
-        urb_br: "",
-        fecha_nacimiento: "",
-        direccion_habitacion_av: "",
-        calle: "",
-        casa_apartamento: "",
-        numero_habitacion: "",
+        representante_urb_br: "",
+        representante_fecha_nacimiento: "",
+        representante_direccion_habitacion_av: "",
+        representante_calle: "",
+        representante_casa_apartamento: "",
+        representante_numero_habitacion: "",
 
-        referencia: "",
-        ciudad: "",
-        parroquia: "",
-        estado: "",
-        telefono_habitacion: "",
-        telefono_personal: "",
+        representante_referencia: "",
+        representante_ciudad: "",
+        representante_parroquia: "",
+        representante_estado: "",
+        representante_telefono_habitacion: "",
+        representante_telefono_personal: "",
 
-        email: "",
-        nivelAcademico: "",
-        profesion: "",
-        lugarTrabajo: "",
-        telefono_trabajo: "",
-        cargo: "",
+        representante_email: "",
+        representante_nivelAcademico: "",
+        representante_profesion: "",
+        representante_lugarTrabajo: "",
+        representante_telefono_trabajo: "",
+        representante_cargo: "",
     });
 
     const [periodoEscolar, setPeriodoEscolar] = useState({
@@ -118,9 +119,47 @@ const Add: React.FC<AddProps> = () => {
         { value: "Extranjero", label: "Extranjero" },
     ];
 
-    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        const data ={
+            ...estudianteData,
+            ...viaDeAccesoData,
+            ...datosRepresentante,
+            ...periodoEscolar
+        }
+
+        const token = localStorage.getItem("token");
+
+        const url = `${process.env.NEXT_PUBLIC_API_URL}/estudiante/register`;
+
+        try {
+            const response = await fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                },
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+
+            notify({ message: result.message, type: result.type });
+
+
+            if (response.ok) {
+                console.log("Empleado registrado con éxito");
+
+                router.push("/dashboard/estudiante");
+            }
+
+        } catch (error) {
+            console.error("Error en la solicitud:", error);
+        }
     };
+
+    
 
     return (
         <>
@@ -468,11 +507,11 @@ const Add: React.FC<AddProps> = () => {
                                 icono={<FaUser />}
                                 placeholder="Parentesco"
                                 name="parentesco"
-                                value={datosRepresentante.parentesco}
+                                value={datosRepresentante.representante_parentesco}
                                 valueChange={(e) =>
                                     setDatosRepresentante({
                                         ...datosRepresentante,
-                                        parentesco: e.target.value,
+                                        representante_parentesco: e.target.value,
                                     })
                                 }
                                 required={true}
@@ -482,11 +521,11 @@ const Add: React.FC<AddProps> = () => {
                                 icono={<FaUser />}
                                 placeholder="Apellidos"
                                 name="apellidos"
-                                value={datosRepresentante.apellidos}
+                                value={datosRepresentante.representante_apellidos}
                                 valueChange={(e) =>
                                     setDatosRepresentante({
                                         ...datosRepresentante,
-                                        apellidos: e.target.value,
+                                        representante_apellidos: e.target.value,
                                     })
                                 }
                                 required={true}
@@ -496,11 +535,11 @@ const Add: React.FC<AddProps> = () => {
                                 icono={<FaUser />}
                                 placeholder="Nombres"
                                 name="nombres"
-                                value={datosRepresentante.nombres}
+                                value={datosRepresentante.representante_nombres}
                                 valueChange={(e) =>
                                     setDatosRepresentante({
                                         ...datosRepresentante,
-                                        nombres: e.target.value,
+                                        representante_nombres: e.target.value,
                                     })
                                 }
                                 required={true}
@@ -510,11 +549,11 @@ const Add: React.FC<AddProps> = () => {
                                 placeholder="Nacionalidad"
                                 content={true}
                                 name="nacionalidad"
-                                value={datosRepresentante.nacionalidad}
+                                value={datosRepresentante.representante_nacionalidad}
                                 valueChange={(e: any) =>
                                     setDatosRepresentante({
                                         ...datosRepresentante,
-                                        nacionalidad: e.value,
+                                        representante_nacionalidad: e.value,
                                     })
                                 }
                                 options={nacionalidad}
@@ -524,11 +563,11 @@ const Add: React.FC<AddProps> = () => {
                                 icono={<FaIdCard />}
                                 placeholder="Cédula"
                                 name="cedula"
-                                value={datosRepresentante.cedula}
+                                value={datosRepresentante.representante_cedula}
                                 valueChange={(e) =>
                                     setDatosRepresentante({
                                         ...datosRepresentante,
-                                        cedula: e.target.value,
+                                        representante_cedula: e.target.value,
                                     })
                                 }
                                 required={true}
@@ -538,11 +577,11 @@ const Add: React.FC<AddProps> = () => {
                                 icono={<FaMapMarkerAlt />}
                                 placeholder="Urbanización/Barrio"
                                 name="urb_br"
-                                value={datosRepresentante.urb_br}
+                                value={datosRepresentante.representante_urb_br}
                                 valueChange={(e) =>
                                     setDatosRepresentante({
                                         ...datosRepresentante,
-                                        urb_br: e.target.value,
+                                        representante_urb_br: e.target.value,
                                     })
                                 }
                                 required={true}
@@ -552,11 +591,11 @@ const Add: React.FC<AddProps> = () => {
                                 icono={<FaBirthdayCake />}
                                 placeholder="Fecha de Nacimiento"
                                 name="fecha_nacimiento"
-                                value={datosRepresentante.fecha_nacimiento}
+                                value={datosRepresentante.representante_fecha_nacimiento}
                                 valueChange={(e) =>
                                     setDatosRepresentante({
                                         ...datosRepresentante,
-                                        fecha_nacimiento: e.target.value,
+                                        representante_fecha_nacimiento: e.target.value,
                                     })
                                 }
                                 required={true}
@@ -566,11 +605,11 @@ const Add: React.FC<AddProps> = () => {
                                 icono={<FaMapMarkerAlt />}
                                 placeholder="Dirección de Habitación (Avenida)"
                                 name="direccion_habitacion_av"
-                                value={datosRepresentante.direccion_habitacion_av}
+                                value={datosRepresentante.representante_direccion_habitacion_av}
                                 valueChange={(e) =>
                                     setDatosRepresentante({
                                         ...datosRepresentante,
-                                        direccion_habitacion_av: e.target.value,
+                                        representante_direccion_habitacion_av: e.target.value,
                                     })
                                 }
                                 required={true}
@@ -580,11 +619,11 @@ const Add: React.FC<AddProps> = () => {
                                 icono={<FaMapMarkerAlt />}
                                 placeholder="Calle"
                                 name="calle"
-                                value={datosRepresentante.calle}
+                                value={datosRepresentante.representante_calle}
                                 valueChange={(e) =>
                                     setDatosRepresentante({
                                         ...datosRepresentante,
-                                        calle: e.target.value,
+                                        representante_calle: e.target.value,
                                     })
                                 }
                                 required={true}
@@ -594,11 +633,11 @@ const Add: React.FC<AddProps> = () => {
                                 icono={<FaMapMarkerAlt />}
                                 placeholder="Casa/Apartamento"
                                 name="casa_apartamento"
-                                value={datosRepresentante.casa_apartamento}
+                                value={datosRepresentante.representante_casa_apartamento}
                                 valueChange={(e) =>
                                     setDatosRepresentante({
                                         ...datosRepresentante,
-                                        casa_apartamento: e.target.value,
+                                        representante_casa_apartamento: e.target.value,
                                     })
                                 }
                                 required={true}
@@ -608,11 +647,11 @@ const Add: React.FC<AddProps> = () => {
                                 icono={<FaMapMarkerAlt />}
                                 placeholder="Número de Habitación"
                                 name="numero_habitacion"
-                                value={datosRepresentante.numero_habitacion}
+                                value={datosRepresentante.representante_numero_habitacion}
                                 valueChange={(e) =>
                                     setDatosRepresentante({
                                         ...datosRepresentante,
-                                        numero_habitacion: e.target.value,
+                                        representante_numero_habitacion: e.target.value,
                                     })
                                 }
                                 required={true}
@@ -622,11 +661,11 @@ const Add: React.FC<AddProps> = () => {
                                 icono={<FaMapMarkerAlt />}
                                 placeholder="Referencia"
                                 name="referencia"
-                                value={datosRepresentante.referencia}
+                                value={datosRepresentante.representante_referencia}
                                 valueChange={(e) =>
                                     setDatosRepresentante({
                                         ...datosRepresentante,
-                                        referencia: e.target.value,
+                                        representante_referencia: e.target.value,
                                     })
                                 }
                                 required={true}
@@ -636,11 +675,11 @@ const Add: React.FC<AddProps> = () => {
                                 icono={<FaMapMarkerAlt />}
                                 placeholder="Ciudad"
                                 name="ciudad"
-                                value={datosRepresentante.ciudad}
+                                value={datosRepresentante.representante_ciudad}
                                 valueChange={(e) =>
                                     setDatosRepresentante({
                                         ...datosRepresentante,
-                                        ciudad: e.target.value,
+                                        representante_ciudad: e.target.value,
                                     })
                                 }
                                 required={true}
@@ -650,11 +689,11 @@ const Add: React.FC<AddProps> = () => {
                                 icono={<FaMapMarkerAlt />}
                                 placeholder="Parroquia"
                                 name="parroquia"
-                                value={datosRepresentante.parroquia}
+                                value={datosRepresentante.representante_parroquia}
                                 valueChange={(e) =>
                                     setDatosRepresentante({
                                         ...datosRepresentante,
-                                        parroquia: e.target.value,
+                                        representante_parroquia: e.target.value,
                                     })
                                 }
                                 required={true}
@@ -664,11 +703,11 @@ const Add: React.FC<AddProps> = () => {
                                 icono={<FaMapMarkerAlt />}
                                 placeholder="Estado"
                                 name="estado"
-                                value={datosRepresentante.estado}
+                                value={datosRepresentante.representante_estado}
                                 valueChange={(e) =>
                                     setDatosRepresentante({
                                         ...datosRepresentante,
-                                        estado: e.target.value,
+                                        representante_estado: e.target.value,
                                     })
                                 }
                                 required={true}
@@ -678,11 +717,11 @@ const Add: React.FC<AddProps> = () => {
                                 icono={<FaPhone />}
                                 placeholder="Teléfono de Habitación"
                                 name="telefono_habitacion"
-                                value={datosRepresentante.telefono_habitacion}
+                                value={datosRepresentante.representante_telefono_habitacion}
                                 valueChange={(e) =>
                                     setDatosRepresentante({
                                         ...datosRepresentante,
-                                        telefono_habitacion: e.target.value,
+                                        representante_telefono_habitacion: e.target.value,
                                     })
                                 }
                                 required={true}
@@ -692,11 +731,11 @@ const Add: React.FC<AddProps> = () => {
                                 icono={<FaPhone />}
                                 placeholder="Teléfono Personal"
                                 name="telefono_personal"
-                                value={datosRepresentante.telefono_personal}
+                                value={datosRepresentante.representante_telefono_personal}
                                 valueChange={(e) =>
                                     setDatosRepresentante({
                                         ...datosRepresentante,
-                                        telefono_personal: e.target.value,
+                                        representante_telefono_personal: e.target.value,
                                     })
                                 }
                                 required={true}
@@ -706,11 +745,11 @@ const Add: React.FC<AddProps> = () => {
                                 icono={<FaEnvelope />}
                                 placeholder="Email"
                                 name="email"
-                                value={datosRepresentante.email}
+                                value={datosRepresentante.representante_email}
                                 valueChange={(e) =>
                                     setDatosRepresentante({
                                         ...datosRepresentante,
-                                        email: e.target.value,
+                                        representante_email: e.target.value,
                                     })
                                 }
                                 required={true}
@@ -720,11 +759,11 @@ const Add: React.FC<AddProps> = () => {
                                 icono={<FaGraduationCap />}
                                 placeholder="Nivel Académico"
                                 name="nivelAcademico"
-                                value={datosRepresentante.nivelAcademico}
+                                value={datosRepresentante.representante_nivelAcademico}
                                 valueChange={(e) =>
                                     setDatosRepresentante({
                                         ...datosRepresentante,
-                                        nivelAcademico: e.target.value,
+                                        representante_nivelAcademico: e.target.value,
                                     })
                                 }
                                 required={true}
@@ -734,11 +773,11 @@ const Add: React.FC<AddProps> = () => {
                                 icono={<FaBriefcase />}
                                 placeholder="Profesión"
                                 name="profesion"
-                                value={datosRepresentante.profesion}
+                                value={datosRepresentante.representante_profesion}
                                 valueChange={(e) =>
                                     setDatosRepresentante({
                                         ...datosRepresentante,
-                                        profesion: e.target.value,
+                                        representante_profesion: e.target.value,
                                     })
                                 }
                                 required={true}
@@ -748,11 +787,11 @@ const Add: React.FC<AddProps> = () => {
                                 icono={<FaBuilding />}
                                 placeholder="Lugar de Trabajo"
                                 name="lugarTrabajo"
-                                value={datosRepresentante.lugarTrabajo}
+                                value={datosRepresentante.representante_lugarTrabajo}
                                 valueChange={(e) =>
                                     setDatosRepresentante({
                                         ...datosRepresentante,
-                                        lugarTrabajo: e.target.value,
+                                        representante_lugarTrabajo: e.target.value,
                                     })
                                 }
                                 required={true}
@@ -762,11 +801,11 @@ const Add: React.FC<AddProps> = () => {
                                 icono={<FaPhone />}
                                 placeholder="Teléfono de Trabajo"
                                 name="telefono_trabajo"
-                                value={datosRepresentante.telefono_trabajo}
+                                value={datosRepresentante.representante_telefono_trabajo}
                                 valueChange={(e) =>
                                     setDatosRepresentante({
                                         ...datosRepresentante,
-                                        telefono_trabajo: e.target.value,
+                                        representante_telefono_trabajo: e.target.value,
                                     })
                                 }
                                 required={true}
@@ -776,11 +815,11 @@ const Add: React.FC<AddProps> = () => {
                                 icono={<FaUser />}
                                 placeholder="Cargo"
                                 name="cargo"
-                                value={datosRepresentante.cargo}
+                                value={datosRepresentante.representante_cargo}
                                 valueChange={(e) =>
                                     setDatosRepresentante({
                                         ...datosRepresentante,
-                                        cargo: e.target.value,
+                                        representante_cargo: e.target.value,
                                     })
                                 }
                                 required={true}

@@ -1,12 +1,12 @@
 import LayoutDB from "../layout/LayoutDB";
 import { MyAgGridReact, SearchInput } from "@tablet";
 import { configTablet, staticDataFake } from "./configTablet";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BtnNormalBasic } from "@btn";
 
 import { A, Icono } from "@nano";
 import { FaUserTie } from "react-icons/fa6";
-
+import { BitacoraTypes } from "./configTablet";
 
 interface BitacoraProps { }
 
@@ -17,10 +17,23 @@ const Bitacora: React.FC<BitacoraProps> = () => {
     const Btns = () => {
         return (
             <>
-                
+
             </>
         );
     };
+
+    const [data, setData] = useState<BitacoraTypes[]>(staticDataFake);
+
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
+    useEffect(() => {
+        fetch(`${apiUrl}/bitacora/get-all`)
+            .then((res) => res.json())
+            .then((res) => {
+
+                setData(res.data);
+            });
+    }, []);
 
 
     return (
@@ -32,7 +45,7 @@ const Bitacora: React.FC<BitacoraProps> = () => {
 
             <MyAgGridReact
                 columnDefs={configTablet}
-                rowData={staticDataFake}
+                rowData={data}
                 quickFilterText={quickFilterText}
             />
         </LayoutDB>

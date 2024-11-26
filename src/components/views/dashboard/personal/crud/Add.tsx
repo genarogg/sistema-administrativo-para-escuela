@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Input, SelectInput } from "@form";
 import { BtnSubmitBasic } from "@btn"
-import { notify } from "@nano";
+import { notify, A } from "@nano";
 import LayoutDB from "../../layout/LayoutDB";
+import router from "next/router";
 
 //iconos
 
@@ -12,7 +13,6 @@ import { MdDateRange } from "react-icons/md";
 import { FaPhoneFlip } from "react-icons/fa6";
 import { BsEnvelopeFill } from "react-icons/bs";
 import { BiSolidDirections } from "react-icons/bi";
-
 import { FaUserGraduate } from "react-icons/fa6";
 import { FaUserTie } from "react-icons/fa6";
 import { MdHomeRepairService } from "react-icons/md";
@@ -100,8 +100,43 @@ const Add: React.FC<AddProps> = () => {
     ];
 
 
-    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        const data = {
+            ...formData,
+            ...formDataPolitica,
+            ...formDataEmpleado,
+        };
+
+        const token = localStorage.getItem("token");
+
+        const url = `${process.env.NEXT_PUBLIC_API_URL}/empleado/register`;
+
+        try {
+            const response = await fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                },
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+
+            notify({ message: result.message, type: result.type });
+
+
+            if (response.ok) {
+                console.log("Empleado registrado con éxito");
+
+                router.push("/dashboard/personal");
+            }
+
+        } catch (error) {
+            console.error("Error en la solicitud:", error);
+        }
     };
 
     return (
