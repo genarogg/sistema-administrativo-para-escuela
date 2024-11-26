@@ -49,15 +49,29 @@ const Login: React.FC<LoginProps> = ({ cardState }) => {
     e.preventDefault();
     setLoading(true);
 
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/auth/login`;
+
     try {
-      // Ejecuta la mutación con las variables del formulario
-      /* await login({
-        variables: {
-          email: formData.correo,
-          password: formData.contrasena,
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-      }); */
-      // Maneja la respuesta, por ejemplo, guardando el JWT
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+      
+      localStorage.setItem("token", result.token);
+
+      notify({ message: result.message, type: result.type });
+
+      if (response.ok) {
+        
+        router.push("/dashboard");
+      }
+
+
     } catch (error) {
       console.error("Error al iniciar sesión", error);
     }
@@ -65,13 +79,6 @@ const Login: React.FC<LoginProps> = ({ cardState }) => {
     setLoading(false);
   };
 
-  // useEffect(() => {
-  //   if (data && data.login.jwt) {
-  //     localStorage.setItem("token", data.login.jwt);
-  //     notify({ message: "Inicio de sesión exitoso", type: "success" });
-  //     router.push("/pagar");
-  //   }
-  // }, [data]);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -79,7 +86,7 @@ const Login: React.FC<LoginProps> = ({ cardState }) => {
     if (token) {
       // Redirecciona al usuario a la página de dashboard
       notify({ message: "Inicio de sesión exitoso", type: "success" });
-      router.push("/pagar");
+      router.push("/dashboard");
     }
   }, []);
 
@@ -113,7 +120,7 @@ const Login: React.FC<LoginProps> = ({ cardState }) => {
           }
         />
         <div className="submit-container">
-          <button className="submit" disabled={loading }>
+          <button className="submit" disabled={loading}>
             Acceder
           </button>
         </div>

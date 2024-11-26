@@ -16,6 +16,7 @@ import { MdOutlineWatchLater } from "react-icons/md";
 import { AiOutlineLogout } from "react-icons/ai";
 import { GrUserWorker } from "react-icons/gr";
 import { PiShareNetworkBold } from "react-icons/pi";
+import router from "next/router";
 interface LayoutDBProps {
     children: React.ReactNode;
     logoText?: React.ReactNode;
@@ -25,28 +26,43 @@ interface LayoutDBProps {
     search?: React.ReactNode;
 }
 
-const LayoutDB: React.FC<LayoutDBProps> = ({ where = "", children, logoText = "", titulo = "", btns, search }) => {
+
+
+const LayoutDB: React.FC<LayoutDBProps> = ({ where = "", children, titulo = "", btns, search }) => {
+
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         window.onscroll = () => {
             scrollHeader();
         };
+
+        const token = localStorage.getItem("token");
+
+
+
+        if (!token) {
+            router.push("/");
+            return;
+        }
+
+        setLoading(false);
     }, []);
 
 
     const Header = () => {
         const menuItems = [
 
-            // { href: "/dashboard/estudiante", label: "estudiante", icon: <FaUserGraduate /> },
-            // { href: "/dashboard/personal", label: "personal", icon: <GrUserWorker /> },
+            { href: "/dashboard/estudiante", label: "estudiante", icon: <FaUserGraduate /> },
+            { href: "/dashboard/personal", label: "personal", icon: <GrUserWorker /> },
             { href: "/dashboard/asistencia", label: "asistencia", icon: <MdChecklistRtl /> },
             // { href: "/dashboard/pasantes", label: "pasantes", icon: <PiShareNetworkBold /> },
 
-            // { href: "/dashboard/pasantia-aceptado", label: "Carta Pasantias", icon: <RiNewspaperFill /> },
+            { href: "/dashboard/pasantia-aceptado", label: "Carta Pasantias", icon: <RiNewspaperFill /> },
 
-            // { href: "/dashboard/usuario", label: "usuario", icon: <FaUsersGear /> },
-            // { href: "/dashboard/bitacora", label: "bitacora", icon: <MdOutlineWatchLater /> },
-            // { href: "/", label: "salir", icon: <AiOutlineLogout /> },
+            { href: "/dashboard/usuario", label: "usuario", icon: <FaUsersGear /> },
+            { href: "/dashboard/bitacora", label: "bitacora", icon: <MdOutlineWatchLater /> },
+            { href: "/", label: "salir", icon: <AiOutlineLogout /> },
         ];
 
         const [isActive, setIsActive] = useState(false);
@@ -95,9 +111,13 @@ const LayoutDB: React.FC<LayoutDBProps> = ({ where = "", children, logoText = ""
         <Layout header={<Header />}>
             <main className={`maindb ${where}`}>
                 <WallPaperBasico img={"/home/download.jpg"}>
-                    <Box titulo={titulo} btns={btns} search={search}>
-                        {children}
-                    </Box>
+
+
+                    {loading ?
+                        <></> :
+                        <Box titulo={titulo} btns={btns} search={search}>
+                            {children}
+                        </Box>}
                 </WallPaperBasico>
             </main>
         </Layout>
