@@ -37,16 +37,16 @@ const LayoutDB: React.FC<LayoutDBProps> = ({ where = "", children, logoText = ""
     const Header = () => {
         const menuItems = [
 
-            { href: "/dashboard/estudiante", label: "estudiante", icon: <FaUserGraduate /> },
+            // { href: "/dashboard/estudiante", label: "estudiante", icon: <FaUserGraduate /> },
             { href: "/dashboard/personal", label: "personal", icon: <GrUserWorker /> },
             { href: "/dashboard/asistencia", label: "asistencia", icon: <MdChecklistRtl /> },
             { href: "/dashboard/pasantes", label: "pasantes", icon: <PiShareNetworkBold /> },
 
-            { href: "/dashboard/pasantia-aceptado", label: "Carta Pasantias", icon: <RiNewspaperFill /> },
+            // { href: "/dashboard/pasantia-aceptado", label: "Carta Pasantias", icon: <RiNewspaperFill /> },
 
-            { href: "/dashboard/usuario", label: "usuario", icon: <FaUsersGear /> },
-            { href: "/dashboard/bitacora", label: "bitacora", icon: <MdOutlineWatchLater /> },
-            { href: "/", label: "salir", icon: <AiOutlineLogout /> },
+            // { href: "/dashboard/usuario", label: "usuario", icon: <FaUsersGear /> },
+            // { href: "/dashboard/bitacora", label: "bitacora", icon: <MdOutlineWatchLater /> },
+            // { href: "/", label: "salir", icon: <AiOutlineLogout /> },
         ];
 
         const [isActive, setIsActive] = useState(false);

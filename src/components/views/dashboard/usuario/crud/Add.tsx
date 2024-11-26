@@ -5,8 +5,9 @@ import { notify } from "@nano";
 import LayoutDB from "../../layout/LayoutDB";
 // iconos
 import { FaUser, FaEnvelope, FaLock, FaIdCard, FaBriefcase, FaUserTag } from "react-icons/fa";
+import router from "next/router";
 
-interface AddProps {}
+interface AddProps { }
 
 const Add: React.FC<AddProps> = () => {
     const [usuarioData, setUsuarioData] = useState({
@@ -26,8 +27,43 @@ const Add: React.FC<AddProps> = () => {
         { value: "admin", label: "Admin" },
     ];
 
-    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        const data = {
+            ...usuarioData
+        };
+
+        const token = localStorage.getItem("token");
+
+        const url = `${process.env.NEXT_PUBLIC_API_URL}/auth/register`;
+
+        try {
+            const response = await fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                },
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+
+            console.log(result);
+
+            notify({ message: result.message, type: result.type });
+
+
+            if (response.ok) {
+                console.log("Empleado registrado con éxito");
+
+                router.push("/dashboard/usuario");
+            }
+
+        } catch (error) {
+            console.error("Error en la solicitud:", error);
+        }
     };
 
     return (

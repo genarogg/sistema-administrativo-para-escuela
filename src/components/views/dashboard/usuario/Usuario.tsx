@@ -1,7 +1,7 @@
 import LayoutDB from "../layout/LayoutDB";
 import { MyAgGridReact, SearchInput } from "@tablet";
-import { configTablet, staticDataFake } from "./configTablet";
-import React, { useState } from "react";
+import { configTablet, staticDataFake, UsuarioTypes } from "./configTablet";
+import React, { useState, useEffect } from "react";
 import { BtnNormalBasic } from "@btn";
 import { FaUserGraduate } from "react-icons/fa";
 import { A, Icono } from "@nano";
@@ -24,6 +24,17 @@ const Usuario: React.FC<UsuarioProps> = () => {
         );
     };
 
+    const [data, setData] = useState<UsuarioTypes[]>(staticDataFake);
+
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
+    useEffect(() => {
+        fetch(`${apiUrl}/usuario/get-all`)
+            .then((res) => res.json())
+            .then((res) => {
+                setData(res.data);
+            });
+    }, []);
 
     return (
         <LayoutDB
@@ -34,7 +45,7 @@ const Usuario: React.FC<UsuarioProps> = () => {
 
             <MyAgGridReact
                 columnDefs={configTablet}
-                rowData={staticDataFake}
+                rowData={data}
                 quickFilterText={quickFilterText}
             />
         </LayoutDB>

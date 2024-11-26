@@ -1,4 +1,4 @@
-import EstudianteFamiliaTypes from "./UsuarioTypes";
+import UsuarioTypes from "./UsuarioTypes";
 import configTablet from "./configTablet";
 import staticDataFake from "./staticDataFake";
 
@@ -7,5 +7,5 @@ export {
     staticDataFake
 };
 
-export type { EstudianteFamiliaTypes };
+export type { UsuarioTypes };
 
